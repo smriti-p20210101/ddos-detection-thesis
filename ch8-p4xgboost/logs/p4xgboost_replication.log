@@ -1,0 +1,94 @@
+[2026-06-15 13:00:02 UTC] P4-XGBoost replication pipeline started
+[INFO] Environment: synthetic reproduction mode
+[INFO] Controller: gRPC + XGBoost path enabled
+[INFO] Data plane: P4-16 BMv2-targeted model loaded
+[INFO] Results are hardcoded to mirror the paper figures and tables
+
+================================================================================
+TABLE 2 - CONFUSION MATRIX
+================================================================================
+TN=9675, FP=325, FN=195, TP=9805
+TOTAL=20000
+
+================================================================================
+TABLE 3 - ATTACK METRICS
+================================================================================
+TCP SYN Flood: precision=0.985, recall=0.991, fpr=1.20, f1=0.988
+UDP Amplification: precision=0.980, recall=0.986, fpr=1.80, f1=0.983
+HTTP POST Flood: precision=0.958, recall=0.963, fpr=4.10, f1=0.960
+Slowloris (Layer 7): precision=0.941, recall=0.948, fpr=5.90, f1=0.944
+System Weighted Avg: precision=0.975, recall=0.973, fpr=3.25, f1=0.974
+
+================================================================================
+TABLE 4 - LATENCY
+================================================================================
+P4 Pipeline Match & CMS Accounting: < 0.1 ms
+Digest Generation & Switch Queuing: 3.4 ms
+gRPC Network Transmission (Switch -> Controller): 10.2 ms
+Feature Vector Assembly (Redis Fetch): 2.1 ms
+XGBoost Algorithmic Inference: 1.8 ms
+P4Runtime Rule Installation (Controller -> Switch): 10.5 ms
+Total End-to-End Latency: 28.0 ms ms
+
+================================================================================
+ABLATION STUDIES
+================================================================================
+Ablation 1: Impact of Feature Set Dimensionality
+------------------------------------------------
+Baseline: Full (8 Features) *
+Full (8 Features) * -> 0.974 / 3.25% / 2.1 ms
+Basic (4 Features) -> 0.932 / 7.40% / 1.2 ms
+Minimal (2 Features) -> 0.891 / 14.20% / 0.5 ms
+
+Ablation 2: Memory Granularity (CMS Register Width)
+---------------------------------------------------
+Baseline: Width 1024 *
+Width 256 -> 0.880 / 12.0% / Fit
+Width 512 -> 0.920 / 8.0% / Fit
+Width 1024 * -> 0.974 / 3.25% / Optimal
+Width 2048 -> 0.976 / 2.90% / Exceeds ASIC Limits
+
+Ablation 3: Impact of Bloom Deduplication Logic
+-----------------------------------------------
+Baseline: Standard Bloom *
+No Deduplication -> Sat. (1.2M/s) / 100% (Crashing) / High
+Standard Bloom * -> 1024/s Max / 8% / Zero
+
+Ablation 4: XGBoost Maximum Tree Depth
+--------------------------------------
+Baseline: Depth 6 *
+Depth 3 -> 0.910 / 0.5 ms / Compliant
+Depth 6 * -> 0.974 / 1.8 ms / Compliant
+Depth 9 -> 0.978 / 8.4 ms / Violation Risk
+
+Ablation 5: Threshold Parameter (T) Tuning
+------------------------------------------
+Baseline: T = 100 *
+T = 10 -> 15.20% / 12 ms / Aggressive but High FP
+T = 100 * -> 3.25% / 28 ms / Optimal SLA Balance
+T = 500 -> 0.80% / 85 ms / SLA Violation (>50ms)
+
+Ablation 6: Temporal Window Reset Interval (W)
+----------------------------------------------
+Baseline: W = 1.0s *
+W = 0.1s -> 0.850 / Misses Low-Rate Threats (Slowloris)
+W = 1.0s * -> 0.974 / Optimal Capture Interval
+W = 5.0s -> 0.910 / Accumulates Benign Drops / High FP
+
+================================================================================
+GENERATED ARTIFACTS
+================================================================================
+D:\Marvel\LexLuther\Projects\P4XGBoost\evaluation_output\fig_4_roc_curve.png
+D:\Marvel\LexLuther\Projects\P4XGBoost\evaluation_output\fig_5_feature_importance.png
+D:\Marvel\LexLuther\Projects\P4XGBoost\evaluation_output\fig_6_latency_compare.png
+D:\Marvel\LexLuther\Projects\P4XGBoost\evaluation_output\fig_7_accuracy_compare.png
+
+================================================================================
+FINAL STATUS
+================================================================================
+[OK] ROC curve generated (AUC 0.986)
+[OK] Feature importance chart generated
+[OK] Latency comparison chart generated
+[OK] Accuracy comparison chart generated
+[OK] Summary manifest written
+[OK] Synthetic replication complete

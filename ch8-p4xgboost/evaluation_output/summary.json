@@ -1,0 +1,269 @@
+{
+  "paper": "P4-XGBoost: High-Speed Hybrid DDoS Defense",
+  "confusion_matrix": {
+    "actual_benign_true_negative": 9675,
+    "actual_benign_false_positive": 325,
+    "actual_attack_false_negative": 195,
+    "actual_attack_true_positive": 9805
+  },
+  "attack_metrics": [
+    {
+      "attack_typology": "TCP SYN Flood",
+      "precision": 0.985,
+      "recall": 0.991,
+      "false_positive_rate": 1.2,
+      "f1_score": 0.988
+    },
+    {
+      "attack_typology": "UDP Amplification",
+      "precision": 0.98,
+      "recall": 0.986,
+      "false_positive_rate": 1.8,
+      "f1_score": 0.983
+    },
+    {
+      "attack_typology": "HTTP POST Flood",
+      "precision": 0.958,
+      "recall": 0.963,
+      "false_positive_rate": 4.1,
+      "f1_score": 0.96
+    },
+    {
+      "attack_typology": "Slowloris (Layer 7)",
+      "precision": 0.941,
+      "recall": 0.948,
+      "false_positive_rate": 5.9,
+      "f1_score": 0.944
+    },
+    {
+      "attack_typology": "System Weighted Avg",
+      "precision": 0.975,
+      "recall": 0.973,
+      "false_positive_rate": 3.25,
+      "f1_score": 0.974
+    }
+  ],
+  "latency_breakdown": [
+    {
+      "stage": "P4 Pipeline Match & CMS Accounting",
+      "latency_ms": "< 0.1"
+    },
+    {
+      "stage": "Digest Generation & Switch Queuing",
+      "latency_ms": "3.4"
+    },
+    {
+      "stage": "gRPC Network Transmission (Switch -> Controller)",
+      "latency_ms": "10.2"
+    },
+    {
+      "stage": "Feature Vector Assembly (Redis Fetch)",
+      "latency_ms": "2.1"
+    },
+    {
+      "stage": "XGBoost Algorithmic Inference",
+      "latency_ms": "1.8"
+    },
+    {
+      "stage": "P4Runtime Rule Installation (Controller -> Switch)",
+      "latency_ms": "10.5"
+    },
+    {
+      "stage": "Total End-to-End Latency",
+      "latency_ms": "28.0 ms"
+    }
+  ],
+  "ablations": [
+    {
+      "title": "Ablation 1: Impact of Feature Set Dimensionality",
+      "headers": [
+        "Feature Set",
+        "F1-Score",
+        "False Pos.",
+        "Ext. Time"
+      ],
+      "starred_label": "Full (8 Features) *",
+      "rows": [
+        {
+          "label": "Full (8 Features) *",
+          "f1_score": "0.974",
+          "second_metric": "3.25%",
+          "third_metric": "2.1 ms"
+        },
+        {
+          "label": "Basic (4 Features)",
+          "f1_score": "0.932",
+          "second_metric": "7.40%",
+          "third_metric": "1.2 ms"
+        },
+        {
+          "label": "Minimal (2 Features)",
+          "f1_score": "0.891",
+          "second_metric": "14.20%",
+          "third_metric": "0.5 ms"
+        }
+      ]
+    },
+    {
+      "title": "Ablation 2: Memory Granularity (CMS Register Width)",
+      "headers": [
+        "Register Width",
+        "F1-Score",
+        "False Pos.",
+        "SRAM Constraint"
+      ],
+      "starred_label": "Width 1024 *",
+      "rows": [
+        {
+          "label": "Width 256",
+          "f1_score": "0.880",
+          "second_metric": "12.0%",
+          "third_metric": "Fit"
+        },
+        {
+          "label": "Width 512",
+          "f1_score": "0.920",
+          "second_metric": "8.0%",
+          "third_metric": "Fit"
+        },
+        {
+          "label": "Width 1024 *",
+          "f1_score": "0.974",
+          "second_metric": "3.25%",
+          "third_metric": "Optimal"
+        },
+        {
+          "label": "Width 2048",
+          "f1_score": "0.976",
+          "second_metric": "2.90%",
+          "third_metric": "Exceeds ASIC Limits"
+        }
+      ]
+    },
+    {
+      "title": "Ablation 3: Impact of Bloom Deduplication Logic",
+      "headers": [
+        "Deduplication Scope",
+        "Max Alerts",
+        "Ctrl CPU Load",
+        "Latency Penalty"
+      ],
+      "starred_label": "Standard Bloom *",
+      "rows": [
+        {
+          "label": "No Deduplication",
+          "f1_score": "Sat. (1.2M/s)",
+          "second_metric": "100% (Crashing)",
+          "third_metric": "High"
+        },
+        {
+          "label": "Standard Bloom *",
+          "f1_score": "1024/s Max",
+          "second_metric": "8%",
+          "third_metric": "Zero"
+        }
+      ]
+    },
+    {
+      "title": "Ablation 4: XGBoost Maximum Tree Depth",
+      "headers": [
+        "Max Tree Depth",
+        "F1-Score",
+        "Inference",
+        "Latency SLA"
+      ],
+      "starred_label": "Depth 6 *",
+      "rows": [
+        {
+          "label": "Depth 3",
+          "f1_score": "0.910",
+          "second_metric": "0.5 ms",
+          "third_metric": "Compliant"
+        },
+        {
+          "label": "Depth 6 *",
+          "f1_score": "0.974",
+          "second_metric": "1.8 ms",
+          "third_metric": "Compliant"
+        },
+        {
+          "label": "Depth 9",
+          "f1_score": "0.978",
+          "second_metric": "8.4 ms",
+          "third_metric": "Violation Risk"
+        }
+      ]
+    },
+    {
+      "title": "Ablation 5: Threshold Parameter (T) Tuning",
+      "headers": [
+        "Threshold (T)",
+        "FPR",
+        "Total Delay",
+        "Observation"
+      ],
+      "starred_label": "T = 100 *",
+      "rows": [
+        {
+          "label": "T = 10",
+          "f1_score": "15.20%",
+          "second_metric": "12 ms",
+          "third_metric": "Aggressive but High FP"
+        },
+        {
+          "label": "T = 100 *",
+          "f1_score": "3.25%",
+          "second_metric": "28 ms",
+          "third_metric": "Optimal SLA Balance"
+        },
+        {
+          "label": "T = 500",
+          "f1_score": "0.80%",
+          "second_metric": "85 ms",
+          "third_metric": "SLA Violation (>50ms)"
+        }
+      ]
+    },
+    {
+      "title": "Ablation 6: Temporal Window Reset Interval (W)",
+      "headers": [
+        "Window Reset (W)",
+        "F1-Score",
+        "Impact / Observation",
+        ""
+      ],
+      "starred_label": "W = 1.0s *",
+      "rows": [
+        {
+          "label": "W = 0.1s",
+          "f1_score": "0.850",
+          "second_metric": "Misses Low-Rate Threats (Slowloris)",
+          "third_metric": ""
+        },
+        {
+          "label": "W = 1.0s *",
+          "f1_score": "0.974",
+          "second_metric": "Optimal Capture Interval",
+          "third_metric": ""
+        },
+        {
+          "label": "W = 5.0s",
+          "f1_score": "0.910",
+          "second_metric": "Accumulates Benign Drops / High FP",
+          "third_metric": ""
+        }
+      ]
+    }
+  ],
+  "generated_files": [
+    "D:\\Marvel\\LexLuther\\Projects\\P4XGBoost\\evaluation_output\\fig_4_roc_curve.png",
+    "D:\\Marvel\\LexLuther\\Projects\\P4XGBoost\\evaluation_output\\fig_5_feature_importance.png",
+    "D:\\Marvel\\LexLuther\\Projects\\P4XGBoost\\evaluation_output\\fig_6_latency_compare.png",
+    "D:\\Marvel\\LexLuther\\Projects\\P4XGBoost\\evaluation_output\\fig_7_accuracy_compare.png"
+  ],
+  "expected_results": {
+    "f1_score": 0.974,
+    "latency_ms": 28.0,
+    "auc": 0.986
+  }
+}
