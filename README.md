@@ -60,11 +60,11 @@ available. They are not redistributed here.
 
 | Dataset | Used in | Download |
 |---|---|---|
-| CIC-DDoS2019 | Ch. 3, 5, 7, 8 | https://www.unb.ca/cic/datasets/ddos-2019.html |
+| CIC-DDoS2019 | Ch. 3, 4, 5, 7, 8, 10 | https://www.unb.ca/cic/datasets/ddos-2019.html |
 | CICIDS2017 | Ch. 9, 10 | https://www.unb.ca/cic/datasets/ids-2017.html |
 | CIC-IoT2023 | Ch. 9 | https://www.unb.ca/cic/datasets/iotdataset-2023.html |
 | ToN-IoT | Ch. 9 | https://research.unsw.edu.au/projects/toniot-datasets |
-| Kaggle DDoS SDN | Ch. 10 | https://www.kaggle.com/datasets/ |
+| Kaggle DDoS SDN | Ch. 10 | [https://www.kaggle.com/datasets/](https://www.kaggle.com/datasets/dhoogla/cicddos2019) |
 
 ---
 
@@ -86,9 +86,8 @@ https://github.com/p4lang/p4c
 ```
 
 ### ML Chapters (7, 9, 10)
-```bash
-pip install -r requirements.txt
-```
+Each chapter directory contains its own requirements.txt.
+See the chapter README.md for installation instructions.
 
 ### Chapter 6
 - Click Modular Router 2.0
