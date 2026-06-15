@@ -1,0 +1,59 @@
+{
+  "num_tasks": 2,
+  "task_names": [
+    "phase1",
+    "phase2"
+  ],
+  "accuracy_matrix": [
+    [
+      0.7895
+    ],
+    [
+      0.30496666666666666,
+      0.9848333333333333
+    ]
+  ],
+  "macro_f1_matrix": [
+    [
+      0.76948715289578
+    ],
+    [
+      0.3185102092575991,
+      0.5351293710451929
+    ]
+  ],
+  "latency_matrix": [
+    [
+      0.028510312495200196
+    ],
+    [
+      0.02494529296654946,
+      0.025550644522809307
+    ]
+  ],
+  "average_accuracy_ak": 0.6449,
+  "average_macro_f1_final": 0.426819790151396,
+  "bwt": -0.4845333333333333,
+  "average_forgetting": 0.4845333333333333,
+  "phase1_test_acc_after_final": 0.30496666666666666,
+  "phase1_test_macro_f1_after_final": 0.3185102092575991,
+  "phase1_latency_ms_per_sample_after_final": 0.02494529296654946,
+  "phase2_test_acc_after_final": 0.9848333333333333,
+  "phase2_test_macro_f1_after_final": 0.5351293710451929,
+  "phase2_latency_ms_per_sample_after_final": 0.025550644522809307,
+  "phase1_test_acc_before_phase2": 0.7895,
+  "phase1_test_acc_after_phase2": 0.30496666666666666,
+  "phase2_test_acc_after_phase2": 0.9848333333333333,
+  "phase1_test_macro_f1_after_phase2": 0.3185102092575991,
+  "phase2_test_macro_f1_after_phase2": 0.5351293710451929,
+  "phase1_latency_ms_per_sample": 0.02494529296654946,
+  "phase2_latency_ms_per_sample": 0.025550644522809307,
+  "num_features": 39,
+  "num_classes_union": 13,
+  "device": "cuda",
+  "continual_method": "finetune",
+  "replay_buffer_size": 0,
+  "ewc_lambda": 0.0,
+  "seed": 44,
+  "fisher_summaries": []
+}

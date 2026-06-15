@@ -1,0 +1,95 @@
+[
+  {
+    "num_tasks": 4,
+    "task_names": [
+      "task1_flood_ddos",
+      "task2_flood_dos",
+      "task3_mirai",
+      "task4_recon"
+    ],
+    "accuracy_matrix": [
+      [
+        0.741
+      ],
+      [
+        0.767,
+        0.954
+      ],
+      [
+        0.584,
+        0.914,
+        0.791
+      ],
+      [
+        0.571,
+        0.76,
+        0.771,
+        0.672
+      ]
+    ],
+    "macro_f1_matrix": [
+      [
+        0.6426007362517554
+      ],
+      [
+        0.7120240353440663,
+        0.9511669791074038
+      ],
+      [
+        0.6098240059395843,
+        0.8966145734395217,
+        0.6833352257671407
+      ],
+      [
+        0.5825165788716149,
+        0.7723711299412082,
+        0.6844769923747285,
+        0.31577374809572956
+      ]
+    ],
+    "latency_matrix": [
+      [
+        0.027414492160460213
+      ],
+      [
+        0.027685585928338696,
+        0.028068710935258423
+      ],
+      [
+        0.026955117209581658,
+        0.02750652342911053,
+        0.02756750000116881
+      ],
+      [
+        0.02739398437370255,
+        0.028777929719581152,
+        0.028037890615451033,
+        0.029272382835188182
+      ]
+    ],
+    "average_accuracy_ak": 0.6935,
+    "average_macro_f1_final": 0.5887846123208202,
+    "bwt": -0.128,
+    "average_forgetting": 0.1366666666666667,
+    "task1_flood_ddos_test_acc_after_final": 0.571,
+    "task1_flood_ddos_test_macro_f1_after_final": 0.5825165788716149,
+    "task1_flood_ddos_latency_ms_per_sample_after_final": 0.02739398437370255,
+    "task2_flood_dos_test_acc_after_final": 0.76,
+    "task2_flood_dos_test_macro_f1_after_final": 0.7723711299412082,
+    "task2_flood_dos_latency_ms_per_sample_after_final": 0.028777929719581152,
+    "task3_mirai_test_acc_after_final": 0.771,
+    "task3_mirai_test_macro_f1_after_final": 0.6844769923747285,
+    "task3_mirai_latency_ms_per_sample_after_final": 0.028037890615451033,
+    "task4_recon_test_acc_after_final": 0.672,
+    "task4_recon_test_macro_f1_after_final": 0.31577374809572956,
+    "task4_recon_latency_ms_per_sample_after_final": 0.029272382835188182,
+    "num_features": 39,
+    "num_classes_union": 14,
+    "device": "cuda",
+    "continual_method": "lwf",
+    "replay_buffer_size": 0,
+    "ewc_lambda": 0.0,
+    "seed": 42,
+    "fisher_summaries": []
+  }
+]

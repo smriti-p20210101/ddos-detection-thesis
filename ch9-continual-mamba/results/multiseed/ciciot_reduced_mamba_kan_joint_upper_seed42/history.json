@@ -1,0 +1,86 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 1.2958387094756443,
+    "mean_val_accuracy": 0.7882833333333333,
+    "mean_val_macro_f1": 0.5712754326904392,
+    "lr": 0.0008
+  },
+  {
+    "epoch": 2,
+    "train_loss": 1.2610329550280912,
+    "mean_val_accuracy": 0.7652666666666667,
+    "mean_val_macro_f1": 0.5182196731335789,
+    "lr": 0.0008
+  },
+  {
+    "epoch": 3,
+    "train_loss": 1.205526593602151,
+    "mean_val_accuracy": 0.8914,
+    "mean_val_macro_f1": 0.6508862894228075,
+    "lr": 0.0008
+  },
+  {
+    "epoch": 4,
+    "train_loss": 1.18586303075019,
+    "mean_val_accuracy": 0.7721833333333333,
+    "mean_val_macro_f1": 0.5395423463572375,
+    "lr": 0.0008
+  },
+  {
+    "epoch": 5,
+    "train_loss": 1.179933685389802,
+    "mean_val_accuracy": 0.8913166666666668,
+    "mean_val_macro_f1": 0.6138274791662548,
+    "lr": 0.0008
+  },
+  {
+    "epoch": 6,
+    "train_loss": 1.152950246891471,
+    "mean_val_accuracy": 0.8848,
+    "mean_val_macro_f1": 0.6190512910347645,
+    "lr": 0.0008
+  },
+  {
+    "epoch": 7,
+    "train_loss": 1.169628753800441,
+    "mean_val_accuracy": 0.89675,
+    "mean_val_macro_f1": 0.6466685324063539,
+    "lr": 0.0008
+  },
+  {
+    "epoch": 8,
+    "train_loss": 1.1434670083555345,
+    "mean_val_accuracy": 0.8936999999999999,
+    "mean_val_macro_f1": 0.6130111024549795,
+    "lr": 0.0008
+  },
+  {
+    "epoch": 9,
+    "train_loss": 1.15318748751598,
+    "mean_val_accuracy": 0.8966,
+    "mean_val_macro_f1": 0.6347192318441057,
+    "lr": 0.0008
+  },
+  {
+    "epoch": 10,
+    "train_loss": 1.1423804540276121,
+    "mean_val_accuracy": 0.8394166666666667,
+    "mean_val_macro_f1": 0.5829649402949791,
+    "lr": 0.0008
+  },
+  {
+    "epoch": 11,
+    "train_loss": 1.133978851114117,
+    "mean_val_accuracy": 0.8945166666666666,
+    "mean_val_macro_f1": 0.6538510937846995,
+    "lr": 0.0008
+  },
+  {
+    "epoch": 12,
+    "train_loss": 1.1338914764008832,
+    "mean_val_accuracy": 0.8971833333333333,
+    "mean_val_macro_f1": 0.6517661857203301,
+    "lr": 0.0008
+  }
+]

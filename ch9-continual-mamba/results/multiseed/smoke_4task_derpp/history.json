@@ -1,0 +1,38 @@
+[
+  {
+    "task": "task1_flood_ddos",
+    "task_index": 0,
+    "epoch": 1,
+    "train_loss": 1.1566594416896503,
+    "val_accuracy": 0.741,
+    "val_macro_f1": 0.6418550976315744,
+    "lr": 0.001
+  },
+  {
+    "task": "task2_flood_dos",
+    "task_index": 1,
+    "epoch": 1,
+    "train_loss": 2.442098672191302,
+    "val_accuracy": 0.948,
+    "val_macro_f1": 0.9281256956520108,
+    "lr": 0.001
+  },
+  {
+    "task": "task3_mirai",
+    "task_index": 2,
+    "epoch": 1,
+    "train_loss": 2.2648257861534753,
+    "val_accuracy": 0.762,
+    "val_macro_f1": 0.6798185580183899,
+    "lr": 0.001
+  },
+  {
+    "task": "task4_recon",
+    "task_index": 3,
+    "epoch": 1,
+    "train_loss": 2.6619530618190765,
+    "val_accuracy": 0.656,
+    "val_macro_f1": 0.32565353581472467,
+    "lr": 0.001
+  }
+]

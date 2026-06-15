@@ -1,0 +1,40 @@
+{
+  "dataset_name": "CICIDS2017-local-full",
+  "reference_dataset": "CICIDS2017",
+  "dataset_root": "D:/4-2/CIC-IDS- 2017",
+  "merged_csv_subdir": ".",
+  "merged_file_pattern": "*.csv",
+  "output_dir": "outputs/cicids2017_local_full_static_mamba_kan",
+  "seed": 42,
+  "device": "cuda",
+  "label_col": "Label",
+  "split_mode": "stratified",
+  "file_split": {
+    "train_ratio": 0.8,
+    "val_ratio": 0.1
+  },
+  "max_samples_per_split": {
+    "train": 0,
+    "val": 0,
+    "test": 0
+  },
+  "training": {
+    "epochs": 5,
+    "batch_size": 2048,
+    "num_workers": 0,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.05,
+    "grad_clip_norm": 1.0,
+    "class_weights": true
+  },
+  "model": {
+    "d_model": 96,
+    "seq_len": 10,
+    "ssm_layers": 2,
+    "dropout": 0.1,
+    "kan_grid": 8,
+    "kan_hidden": 96,
+    "variant": "mamba_kan"
+  }
+}

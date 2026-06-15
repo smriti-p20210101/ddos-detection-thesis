@@ -1,0 +1,110 @@
+[
+  {
+    "task": "phase1",
+    "task_index": 0,
+    "epoch": 1,
+    "train_loss": 0.611742293875372,
+    "val_accuracy": 0.8038666666666666,
+    "val_macro_f1": 0.7145234671094757,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase1",
+    "task_index": 0,
+    "epoch": 2,
+    "train_loss": 0.5674189315924465,
+    "val_accuracy": 0.8033333333333333,
+    "val_macro_f1": 0.7263937424359025,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase1",
+    "task_index": 0,
+    "epoch": 3,
+    "train_loss": 0.5641761034625382,
+    "val_accuracy": 0.806,
+    "val_macro_f1": 0.7243083279152381,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase1",
+    "task_index": 0,
+    "epoch": 4,
+    "train_loss": 0.5638315718837159,
+    "val_accuracy": 0.8083666666666667,
+    "val_macro_f1": 0.7554481390881594,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase1",
+    "task_index": 0,
+    "epoch": 5,
+    "train_loss": 0.5628579456753291,
+    "val_accuracy": 0.8046,
+    "val_macro_f1": 0.7712612239630042,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase1",
+    "task_index": 0,
+    "epoch": 6,
+    "train_loss": 0.5622617334839427,
+    "val_accuracy": 0.7906,
+    "val_macro_f1": 0.7694781917932777,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase2",
+    "task_index": 1,
+    "epoch": 1,
+    "train_loss": 0.5966725602695153,
+    "val_accuracy": 0.8005666666666666,
+    "val_macro_f1": 0.35459696992510675,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase2",
+    "task_index": 1,
+    "epoch": 2,
+    "train_loss": 0.5844964779684568,
+    "val_accuracy": 0.8017666666666666,
+    "val_macro_f1": 0.42984749720087284,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase2",
+    "task_index": 1,
+    "epoch": 3,
+    "train_loss": 0.5828870087353443,
+    "val_accuracy": 0.8010333333333334,
+    "val_macro_f1": 0.42308912357421463,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase2",
+    "task_index": 1,
+    "epoch": 4,
+    "train_loss": 0.5727697502529255,
+    "val_accuracy": 0.9366,
+    "val_macro_f1": 0.5254071777241534,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase2",
+    "task_index": 1,
+    "epoch": 5,
+    "train_loss": 0.4885612259850974,
+    "val_accuracy": 0.9828666666666667,
+    "val_macro_f1": 0.5499453860014442,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase2",
+    "task_index": 1,
+    "epoch": 6,
+    "train_loss": 0.42478532560245985,
+    "val_accuracy": 0.9863666666666666,
+    "val_macro_f1": 0.5413031806339302,
+    "lr": 0.0008
+  }
+]

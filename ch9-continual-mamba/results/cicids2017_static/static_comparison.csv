@@ -1,0 +1,9 @@
+accuracy,average,comparison_dataset,f1,method,precision,recall,source
+0.9983,reported,CICIDS2017,0.8892,RF,0.9059,0.8732,Zhao and Zhang 2025 Table 4 (CICIDS2017)
+0.9979,reported,CICIDS2017,0.8582,CNN,0.8935,0.8256,Zhao and Zhang 2025 Table 4 (CICIDS2017)
+0.9976,reported,CICIDS2017,0.8245,LSTM,0.8282,0.8209,Zhao and Zhang 2025 Table 4 (CICIDS2017)
+0.9731,reported,CICIDS2017,0.9731,YaTC,0.9733,0.9731,Zhao and Zhang 2025 Table 4 (CICIDS2017)
+0.9624,reported,CICIDS2017,0.9625,NetMamba,0.9626,0.9625,Zhao and Zhang 2025 Table 4 (CICIDS2017)
+0.9653,reported,CICIDS2017,0.9654,MAMBA-KAN (reported),0.9654,0.9654,Zhao and Zhang 2025 Table 4 (CICIDS2017)
+0.9792281197562483,macro,CICIDS2017,0.6943775365344854,"mamba_kan (this work, macro)",0.7379176289630608,0.701985859329647,local run
+0.9792281197562483,weighted,CICIDS2017,0.979155567856629,"mamba_kan (this work, weighted)",0.9799924163424052,0.9792281197562483,local run

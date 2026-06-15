@@ -1,0 +1,524 @@
+[
+  {
+    "num_tasks": 2,
+    "task_names": [
+      "phase1",
+      "phase2"
+    ],
+    "accuracy_matrix": [
+      [
+        0.8045
+      ],
+      [
+        0.2986,
+        0.7673333333333333
+      ]
+    ],
+    "macro_f1_matrix": [
+      [
+        0.7179830364308387
+      ],
+      [
+        0.24145846682563168,
+        0.4095825999991303
+      ]
+    ],
+    "latency_matrix": [
+      [
+        0.022197421867531375
+      ],
+      [
+        0.0255339257819287,
+        0.027683886719387374
+      ]
+    ],
+    "average_accuracy_ak": 0.5329666666666666,
+    "average_macro_f1_final": 0.325520533412381,
+    "bwt": -0.5059,
+    "average_forgetting": 0.5059,
+    "phase1_test_acc_after_final": 0.2986,
+    "phase1_test_macro_f1_after_final": 0.24145846682563168,
+    "phase1_latency_ms_per_sample_after_final": 0.0255339257819287,
+    "phase2_test_acc_after_final": 0.7673333333333333,
+    "phase2_test_macro_f1_after_final": 0.4095825999991303,
+    "phase2_latency_ms_per_sample_after_final": 0.027683886719387374,
+    "phase1_test_acc_before_phase2": 0.8045,
+    "phase1_test_acc_after_phase2": 0.2986,
+    "phase2_test_acc_after_phase2": 0.7673333333333333,
+    "phase1_test_macro_f1_after_phase2": 0.24145846682563168,
+    "phase2_test_macro_f1_after_phase2": 0.4095825999991303,
+    "phase1_latency_ms_per_sample": 0.0255339257819287,
+    "phase2_latency_ms_per_sample": 0.027683886719387374,
+    "num_features": 39,
+    "num_classes_union": 13,
+    "device": "cuda",
+    "continual_method": "ewc",
+    "replay_buffer_size": 0,
+    "ewc_lambda": 5.0,
+    "seed": 42,
+    "fisher_summaries": [
+      {
+        "task": "phase1",
+        "task_index": 0,
+        "total": 0.1924177183491338,
+        "mean": 1.1054614092136307e-06,
+        "max": 0.004813313949853182,
+        "top_parameters": [
+          {
+            "parameter": "head.fc2.weight",
+            "mean": 8.74226498126518e-06,
+            "sum": 0.08728277683258057,
+            "max": 0.00027269290876574814
+          },
+          {
+            "parameter": "head.fc2.base.weight",
+            "mean": 6.68548746034503e-05,
+            "sum": 0.08343487977981567,
+            "max": 0.004813313949853182
+          },
+          {
+            "parameter": "ssm.1.delta_proj.weight",
+            "mean": 4.794002279595588e-07,
+            "sum": 0.004418152384459972,
+            "max": 0.00010950797877740115
+          },
+          {
+            "parameter": "head.fc1.weight",
+            "mean": 3.449731522664479e-08,
+            "sum": 0.0025434179697185755,
+            "max": 1.1518399105625576e-06
+          },
+          {
+            "parameter": "ssm.1.out_proj.weight",
+            "mean": 2.3386054692764446e-07,
+            "sum": 0.002155258785933256,
+            "max": 1.8440045096212998e-05
+          },
+          {
+            "parameter": "input_proj.weight",
+            "mean": 4.0040426938503515e-06,
+            "sum": 0.001537552336230874,
+            "max": 4.7213932703016326e-05
+          },
+          {
+            "parameter": "ssm.1.in_proj.weight",
+            "mean": 1.577369914684823e-07,
+            "sum": 0.0014537040842697024,
+            "max": 1.1733285646187142e-05
+          },
+          {
+            "parameter": "head.fc1.base.weight",
+            "mean": 1.3775745344446477e-07,
+            "sum": 0.0012695726472884417,
+            "max": 3.5509019653545693e-06
+          }
+        ]
+      },
+      {
+        "task": "phase2",
+        "task_index": 1,
+        "total": 27944.010482570855,
+        "mean": 0.16054147961100335,
+        "max": 896.8831787109375,
+        "top_parameters": [
+          {
+            "parameter": "ssm.0.delta_proj.weight",
+            "mean": 2.4806835651397705,
+            "sum": 22861.978515625,
+            "max": 896.8831787109375
+          },
+          {
+            "parameter": "input_proj.weight",
+            "mean": 9.11505126953125,
+            "sum": 3500.1796875,
+            "max": 192.72744750976562
+          },
+          {
+            "parameter": "ssm.0.a_log",
+            "mean": 5.480791091918945,
+            "sum": 526.1559448242188,
+            "max": 306.36029052734375
+          },
+          {
+            "parameter": "input_proj.bias",
+            "mean": 2.5990617275238037,
+            "sum": 249.50991821289062,
+            "max": 27.35629653930664
+          },
+          {
+            "parameter": "pos_emb",
+            "mean": 0.24857904016971588,
+            "sum": 238.6358642578125,
+            "max": 27.09032440185547
+          },
+          {
+            "parameter": "ssm.0.in_proj.weight",
+            "mean": 0.020794885233044624,
+            "sum": 191.64566040039062,
+            "max": 5.596185207366943
+          },
+          {
+            "parameter": "ssm.0.delta_proj.bias",
+            "mean": 1.8746788501739502,
+            "sum": 179.9691619873047,
+            "max": 103.75516510009766
+          },
+          {
+            "parameter": "ssm.0.out_proj.weight",
+            "mean": 0.01756267063319683,
+            "sum": 161.85757446289062,
+            "max": 7.11410665512085
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "num_tasks": 2,
+    "task_names": [
+      "phase1",
+      "phase2"
+    ],
+    "accuracy_matrix": [
+      [
+        0.8062333333333334
+      ],
+      [
+        0.5028,
+        0.8003
+      ]
+    ],
+    "macro_f1_matrix": [
+      [
+        0.7251097737439828
+      ],
+      [
+        0.39462618289072066,
+        0.39802676968635864
+      ]
+    ],
+    "latency_matrix": [
+      [
+        0.027141972657318547
+      ],
+      [
+        0.023029785165817884,
+        0.02287447265416631
+      ]
+    ],
+    "average_accuracy_ak": 0.6515500000000001,
+    "average_macro_f1_final": 0.3963264762885397,
+    "bwt": -0.30343333333333333,
+    "average_forgetting": 0.30343333333333333,
+    "phase1_test_acc_after_final": 0.5028,
+    "phase1_test_macro_f1_after_final": 0.39462618289072066,
+    "phase1_latency_ms_per_sample_after_final": 0.023029785165817884,
+    "phase2_test_acc_after_final": 0.8003,
+    "phase2_test_macro_f1_after_final": 0.39802676968635864,
+    "phase2_latency_ms_per_sample_after_final": 0.02287447265416631,
+    "phase1_test_acc_before_phase2": 0.8062333333333334,
+    "phase1_test_acc_after_phase2": 0.5028,
+    "phase2_test_acc_after_phase2": 0.8003,
+    "phase1_test_macro_f1_after_phase2": 0.39462618289072066,
+    "phase2_test_macro_f1_after_phase2": 0.39802676968635864,
+    "phase1_latency_ms_per_sample": 0.023029785165817884,
+    "phase2_latency_ms_per_sample": 0.02287447265416631,
+    "num_features": 39,
+    "num_classes_union": 13,
+    "device": "cuda",
+    "continual_method": "ewc",
+    "replay_buffer_size": 0,
+    "ewc_lambda": 5.0,
+    "seed": 43,
+    "fisher_summaries": [
+      {
+        "task": "phase1",
+        "task_index": 0,
+        "total": 0.5475492412078893,
+        "mean": 3.1457319055267366e-06,
+        "max": 0.014793316833674908,
+        "top_parameters": [
+          {
+            "parameter": "head.fc2.base.weight",
+            "mean": 0.00023612934455741197,
+            "sum": 0.294689416885376,
+            "max": 0.014793316833674908
+          },
+          {
+            "parameter": "head.fc2.weight",
+            "mean": 2.2006541257724166e-05,
+            "sum": 0.21971330046653748,
+            "max": 0.0009098313748836517
+          },
+          {
+            "parameter": "head.fc1.weight",
+            "mean": 6.144441755395746e-08,
+            "sum": 0.004530173726379871,
+            "max": 5.021191554988036e-06
+          },
+          {
+            "parameter": "ssm.1.out_proj.weight",
+            "mean": 4.363272694263287e-07,
+            "sum": 0.004021191969513893,
+            "max": 3.7877947761444375e-05
+          },
+          {
+            "parameter": "ssm.1.delta_proj.weight",
+            "mean": 4.217603191136732e-07,
+            "sum": 0.00388694298453629,
+            "max": 3.5069188015768304e-05
+          },
+          {
+            "parameter": "head.fc2.base.bias",
+            "mean": 0.00019368868379388005,
+            "sum": 0.0025179528165608644,
+            "max": 0.0008975772652775049
+          },
+          {
+            "parameter": "ssm.1.in_proj.weight",
+            "mean": 2.6668860186873644e-07,
+            "sum": 0.0024578021839261055,
+            "max": 1.9212062397855334e-05
+          },
+          {
+            "parameter": "input_proj.weight",
+            "mean": 6.077098987589125e-06,
+            "sum": 0.002333605894818902,
+            "max": 4.750467269332148e-05
+          }
+        ]
+      },
+      {
+        "task": "phase2",
+        "task_index": 1,
+        "total": 0.2669595824136195,
+        "mean": 1.5337127927199056e-06,
+        "max": 0.012004843913018703,
+        "top_parameters": [
+          {
+            "parameter": "head.fc2.weight",
+            "mean": 1.4265545360103715e-05,
+            "sum": 0.1424272060394287,
+            "max": 0.0010454005096107721
+          },
+          {
+            "parameter": "head.fc2.base.weight",
+            "mean": 6.380030390573665e-05,
+            "sum": 0.079622782766819,
+            "max": 0.012004843913018703
+          },
+          {
+            "parameter": "ssm.0.delta_proj.weight",
+            "mean": 1.7605535731490818e-06,
+            "sum": 0.016225261613726616,
+            "max": 0.00017746933735907078
+          },
+          {
+            "parameter": "input_proj.weight",
+            "mean": 1.612378764548339e-05,
+            "sum": 0.006191533990204334,
+            "max": 0.00037201610393822193
+          },
+          {
+            "parameter": "ssm.0.out_proj.weight",
+            "mean": 5.914860707889602e-07,
+            "sum": 0.005451135337352753,
+            "max": 4.35530164395459e-05
+          },
+          {
+            "parameter": "ssm.1.delta_proj.weight",
+            "mean": 3.664395364921802e-07,
+            "sum": 0.0033771067392081022,
+            "max": 0.00012195190356578678
+          },
+          {
+            "parameter": "ssm.0.in_proj.weight",
+            "mean": 3.597077409267513e-07,
+            "sum": 0.0033150664530694485,
+            "max": 2.791241968225222e-05
+          },
+          {
+            "parameter": "head.fc2.base.bias",
+            "mean": 0.00016587247955612838,
+            "sum": 0.0021563421469181776,
+            "max": 0.0011568502523005009
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "num_tasks": 2,
+    "task_names": [
+      "phase1",
+      "phase2"
+    ],
+    "accuracy_matrix": [
+      [
+        0.7895
+      ],
+      [
+        0.2104,
+        0.9884666666666667
+      ]
+    ],
+    "macro_f1_matrix": [
+      [
+        0.76948715289578
+      ],
+      [
+        0.14228571287616606,
+        0.5297840710892298
+      ]
+    ],
+    "latency_matrix": [
+      [
+        0.022304003903172998
+      ],
+      [
+        0.02504664062144002,
+        0.02572162109117926
+      ]
+    ],
+    "average_accuracy_ak": 0.5994333333333334,
+    "average_macro_f1_final": 0.3360348919826979,
+    "bwt": -0.5791,
+    "average_forgetting": 0.5791,
+    "phase1_test_acc_after_final": 0.2104,
+    "phase1_test_macro_f1_after_final": 0.14228571287616606,
+    "phase1_latency_ms_per_sample_after_final": 0.02504664062144002,
+    "phase2_test_acc_after_final": 0.9884666666666667,
+    "phase2_test_macro_f1_after_final": 0.5297840710892298,
+    "phase2_latency_ms_per_sample_after_final": 0.02572162109117926,
+    "phase1_test_acc_before_phase2": 0.7895,
+    "phase1_test_acc_after_phase2": 0.2104,
+    "phase2_test_acc_after_phase2": 0.9884666666666667,
+    "phase1_test_macro_f1_after_phase2": 0.14228571287616606,
+    "phase2_test_macro_f1_after_phase2": 0.5297840710892298,
+    "phase1_latency_ms_per_sample": 0.02504664062144002,
+    "phase2_latency_ms_per_sample": 0.02572162109117926,
+    "num_features": 39,
+    "num_classes_union": 13,
+    "device": "cuda",
+    "continual_method": "ewc",
+    "replay_buffer_size": 0,
+    "ewc_lambda": 5.0,
+    "seed": 44,
+    "fisher_summaries": [
+      {
+        "task": "phase1",
+        "task_index": 0,
+        "total": 0.47972633993481395,
+        "mean": 2.7560817181035038e-06,
+        "max": 0.011366859078407288,
+        "top_parameters": [
+          {
+            "parameter": "head.fc2.weight",
+            "mean": 2.215164749941323e-05,
+            "sum": 0.22116205096244812,
+            "max": 0.000984472455456853
+          },
+          {
+            "parameter": "head.fc2.base.weight",
+            "mean": 0.00015978557348717004,
+            "sum": 0.19941239058971405,
+            "max": 0.011366859078407288
+          },
+          {
+            "parameter": "ssm.1.delta_proj.weight",
+            "mean": 2.940438889709185e-06,
+            "sum": 0.027099084109067917,
+            "max": 0.001345008728094399
+          },
+          {
+            "parameter": "head.fc1.weight",
+            "mean": 5.631367727687575e-08,
+            "sum": 0.004151894710958004,
+            "max": 4.924329005007166e-06
+          },
+          {
+            "parameter": "ssm.0.delta_proj.weight",
+            "mean": 3.3505622809570923e-07,
+            "sum": 0.0030878782272338867,
+            "max": 7.382416515611112e-05
+          },
+          {
+            "parameter": "ssm.1.out_proj.weight",
+            "mean": 3.342710499509849e-07,
+            "sum": 0.003080642083659768,
+            "max": 2.621302155603189e-05
+          },
+          {
+            "parameter": "ssm.1.in_proj.weight",
+            "mean": 2.8914018912473693e-07,
+            "sum": 0.0026647159829735756,
+            "max": 3.427868432481773e-05
+          },
+          {
+            "parameter": "head.fc2.base.bias",
+            "mean": 0.0001914539752760902,
+            "sum": 0.0024889016058295965,
+            "max": 0.0010249650804325938
+          }
+        ]
+      },
+      {
+        "task": "phase2",
+        "task_index": 1,
+        "total": 1.1042002761223557,
+        "mean": 6.343754638444888e-06,
+        "max": 0.04310709983110428,
+        "top_parameters": [
+          {
+            "parameter": "ssm.0.delta_proj.weight",
+            "mean": 8.516087109455839e-05,
+            "sum": 0.7848426103591919,
+            "max": 0.04310709983110428
+          },
+          {
+            "parameter": "input_proj.weight",
+            "mean": 0.0005563368322327733,
+            "sum": 0.21363334357738495,
+            "max": 0.007269250229001045
+          },
+          {
+            "parameter": "ssm.0.a_log",
+            "mean": 0.00031602487433701754,
+            "sum": 0.030338386073708534,
+            "max": 0.020756997168064117
+          },
+          {
+            "parameter": "input_proj.bias",
+            "mean": 0.00018472711963113397,
+            "sum": 0.017733803018927574,
+            "max": 0.0013453587889671326
+          },
+          {
+            "parameter": "pos_emb",
+            "mean": 1.8269272914039902e-05,
+            "sum": 0.01753850094974041,
+            "max": 0.0013013549614697695
+          },
+          {
+            "parameter": "ssm.0.delta_proj.bias",
+            "mean": 0.00011728750541806221,
+            "sum": 0.011259600520133972,
+            "max": 0.0076643070206046104
+          },
+          {
+            "parameter": "head.fc2.base.weight",
+            "mean": 6.193627086759079e-06,
+            "sum": 0.007729646749794483,
+            "max": 0.00023820287606213242
+          },
+          {
+            "parameter": "head.fc2.weight",
+            "mean": 5.860968599336047e-07,
+            "sum": 0.005851591005921364,
+            "max": 1.3001627849007491e-05
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,85 @@
+{
+  "dataset_root": "D:/4-2/CIC_IOT_Dataset2023",
+  "merged_csv_subdir": "MERGED_CSV",
+  "output_dir": "outputs/smoke_4task_er",
+  "seed": 42,
+  "device": "cuda",
+  "file_split": {
+    "train_ratio": 0.8,
+    "val_ratio": 0.1
+  },
+  "max_samples_per_split": {
+    "train": 3000,
+    "val": 1000,
+    "test": 1000
+  },
+  "tasks": [
+    {
+      "name": "task1_flood_ddos",
+      "labels": [
+        "BENIGN",
+        "DDOS-ICMP_FLOOD",
+        "DDOS-UDP_FLOOD",
+        "DDOS-TCP_FLOOD"
+      ]
+    },
+    {
+      "name": "task2_flood_dos",
+      "labels": [
+        "BENIGN",
+        "DOS-UDP_FLOOD",
+        "DOS-TCP_FLOOD",
+        "DOS-SYN_FLOOD"
+      ]
+    },
+    {
+      "name": "task3_mirai",
+      "labels": [
+        "BENIGN",
+        "MIRAI-GREETH_FLOOD",
+        "MIRAI-GREIP_FLOOD",
+        "MIRAI-UDPPLAIN"
+      ]
+    },
+    {
+      "name": "task4_recon",
+      "labels": [
+        "BENIGN",
+        "RECON-HOSTDISCOVERY",
+        "RECON-OSSCAN",
+        "RECON-PORTSCAN",
+        "VULNERABILITYSCAN"
+      ]
+    }
+  ],
+  "training": {
+    "batch_size": 128,
+    "num_workers": 0,
+    "epochs_per_task": 1,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.05,
+    "grad_clip_norm": 1.0,
+    "scheduler": "none",
+    "warmup_epochs": 0
+  },
+  "model": {
+    "d_model": 48,
+    "seq_len": 10,
+    "ssm_layers": 1,
+    "dropout": 0.1,
+    "kan_grid": 4,
+    "kan_hidden": 48,
+    "variant": "mamba_kan"
+  },
+  "ewc": {
+    "lambda": 1.0,
+    "fisher_batches": 3
+  },
+  "continual": {
+    "method": "er",
+    "buffer_size": 1000,
+    "replay_batch_size": 64,
+    "replay_alpha": 1.0
+  }
+}

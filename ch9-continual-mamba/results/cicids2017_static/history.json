@@ -1,0 +1,62 @@
+[
+  {
+    "epoch": 1.0,
+    "train_loss": 0.9764058718737383,
+    "val_accuracy": 0.982905590391239,
+    "val_precision_macro": 0.6794336165665283,
+    "val_recall_macro": 0.6844740299027383,
+    "val_f1_macro": 0.6817305515066198,
+    "val_precision_weighted": 0.9823786387635067,
+    "val_recall_weighted": 0.982905590391239,
+    "val_f1_weighted": 0.9825927554175846,
+    "val_latency_ms_per_sample": 0.02670904495274907
+  },
+  {
+    "epoch": 2.0,
+    "train_loss": 0.9345042367093602,
+    "val_accuracy": 0.9855338691159586,
+    "val_precision_macro": 0.7288098047399681,
+    "val_recall_macro": 0.6871697538231576,
+    "val_f1_macro": 0.6704676033900364,
+    "val_precision_weighted": 0.9856380130348883,
+    "val_recall_weighted": 0.9855338691159586,
+    "val_f1_weighted": 0.9852400369786408,
+    "val_latency_ms_per_sample": 0.038723421354766877
+  },
+  {
+    "epoch": 3.0,
+    "train_loss": 0.9315740754440508,
+    "val_accuracy": 0.9789667049368542,
+    "val_precision_macro": 0.7408843723213754,
+    "val_recall_macro": 0.7068579896952213,
+    "val_f1_macro": 0.6977032207407058,
+    "val_precision_weighted": 0.9797387102470738,
+    "val_recall_weighted": 0.9789667049368542,
+    "val_f1_weighted": 0.978897312744886,
+    "val_latency_ms_per_sample": 0.015380840413314688
+  },
+  {
+    "epoch": 4.0,
+    "train_loss": 0.9299881956245326,
+    "val_accuracy": 0.9849933763136978,
+    "val_precision_macro": 0.694750909860587,
+    "val_recall_macro": 0.7056946240684149,
+    "val_f1_macro": 0.6615331255793717,
+    "val_precision_weighted": 0.9850089519525902,
+    "val_recall_weighted": 0.9849933763136978,
+    "val_f1_weighted": 0.9847781426738763,
+    "val_latency_ms_per_sample": 0.02715143795813942
+  },
+  {
+    "epoch": 5.0,
+    "train_loss": 0.929184964509381,
+    "val_accuracy": 0.9864912125761723,
+    "val_precision_macro": 0.7737398308526398,
+    "val_recall_macro": 0.7062003851991825,
+    "val_f1_macro": 0.6711236547721212,
+    "val_precision_weighted": 0.9869130812209732,
+    "val_recall_weighted": 0.9864912125761723,
+    "val_f1_weighted": 0.9863119916050841,
+    "val_latency_ms_per_sample": 0.04217922352733012
+  }
+]

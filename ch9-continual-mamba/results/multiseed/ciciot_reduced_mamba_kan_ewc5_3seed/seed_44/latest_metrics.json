@@ -1,0 +1,174 @@
+{
+  "num_tasks": 2,
+  "task_names": [
+    "phase1",
+    "phase2"
+  ],
+  "accuracy_matrix": [
+    [
+      0.7895
+    ],
+    [
+      0.2104,
+      0.9884666666666667
+    ]
+  ],
+  "macro_f1_matrix": [
+    [
+      0.76948715289578
+    ],
+    [
+      0.14228571287616606,
+      0.5297840710892298
+    ]
+  ],
+  "latency_matrix": [
+    [
+      0.022304003903172998
+    ],
+    [
+      0.02504664062144002,
+      0.02572162109117926
+    ]
+  ],
+  "average_accuracy_ak": 0.5994333333333334,
+  "average_macro_f1_final": 0.3360348919826979,
+  "bwt": -0.5791,
+  "average_forgetting": 0.5791,
+  "phase1_test_acc_after_final": 0.2104,
+  "phase1_test_macro_f1_after_final": 0.14228571287616606,
+  "phase1_latency_ms_per_sample_after_final": 0.02504664062144002,
+  "phase2_test_acc_after_final": 0.9884666666666667,
+  "phase2_test_macro_f1_after_final": 0.5297840710892298,
+  "phase2_latency_ms_per_sample_after_final": 0.02572162109117926,
+  "phase1_test_acc_before_phase2": 0.7895,
+  "phase1_test_acc_after_phase2": 0.2104,
+  "phase2_test_acc_after_phase2": 0.9884666666666667,
+  "phase1_test_macro_f1_after_phase2": 0.14228571287616606,
+  "phase2_test_macro_f1_after_phase2": 0.5297840710892298,
+  "phase1_latency_ms_per_sample": 0.02504664062144002,
+  "phase2_latency_ms_per_sample": 0.02572162109117926,
+  "num_features": 39,
+  "num_classes_union": 13,
+  "device": "cuda",
+  "continual_method": "ewc",
+  "replay_buffer_size": 0,
+  "ewc_lambda": 5.0,
+  "seed": 44,
+  "fisher_summaries": [
+    {
+      "task": "phase1",
+      "task_index": 0,
+      "total": 0.47972633993481395,
+      "mean": 2.7560817181035038e-06,
+      "max": 0.011366859078407288,
+      "top_parameters": [
+        {
+          "parameter": "head.fc2.weight",
+          "mean": 2.215164749941323e-05,
+          "sum": 0.22116205096244812,
+          "max": 0.000984472455456853
+        },
+        {
+          "parameter": "head.fc2.base.weight",
+          "mean": 0.00015978557348717004,
+          "sum": 0.19941239058971405,
+          "max": 0.011366859078407288
+        },
+        {
+          "parameter": "ssm.1.delta_proj.weight",
+          "mean": 2.940438889709185e-06,
+          "sum": 0.027099084109067917,
+          "max": 0.001345008728094399
+        },
+        {
+          "parameter": "head.fc1.weight",
+          "mean": 5.631367727687575e-08,
+          "sum": 0.004151894710958004,
+          "max": 4.924329005007166e-06
+        },
+        {
+          "parameter": "ssm.0.delta_proj.weight",
+          "mean": 3.3505622809570923e-07,
+          "sum": 0.0030878782272338867,
+          "max": 7.382416515611112e-05
+        },
+        {
+          "parameter": "ssm.1.out_proj.weight",
+          "mean": 3.342710499509849e-07,
+          "sum": 0.003080642083659768,
+          "max": 2.621302155603189e-05
+        },
+        {
+          "parameter": "ssm.1.in_proj.weight",
+          "mean": 2.8914018912473693e-07,
+          "sum": 0.0026647159829735756,
+          "max": 3.427868432481773e-05
+        },
+        {
+          "parameter": "head.fc2.base.bias",
+          "mean": 0.0001914539752760902,
+          "sum": 0.0024889016058295965,
+          "max": 0.0010249650804325938
+        }
+      ]
+    },
+    {
+      "task": "phase2",
+      "task_index": 1,
+      "total": 1.1042002761223557,
+      "mean": 6.343754638444888e-06,
+      "max": 0.04310709983110428,
+      "top_parameters": [
+        {
+          "parameter": "ssm.0.delta_proj.weight",
+          "mean": 8.516087109455839e-05,
+          "sum": 0.7848426103591919,
+          "max": 0.04310709983110428
+        },
+        {
+          "parameter": "input_proj.weight",
+          "mean": 0.0005563368322327733,
+          "sum": 0.21363334357738495,
+          "max": 0.007269250229001045
+        },
+        {
+          "parameter": "ssm.0.a_log",
+          "mean": 0.00031602487433701754,
+          "sum": 0.030338386073708534,
+          "max": 0.020756997168064117
+        },
+        {
+          "parameter": "input_proj.bias",
+          "mean": 0.00018472711963113397,
+          "sum": 0.017733803018927574,
+          "max": 0.0013453587889671326
+        },
+        {
+          "parameter": "pos_emb",
+          "mean": 1.8269272914039902e-05,
+          "sum": 0.01753850094974041,
+          "max": 0.0013013549614697695
+        },
+        {
+          "parameter": "ssm.0.delta_proj.bias",
+          "mean": 0.00011728750541806221,
+          "sum": 0.011259600520133972,
+          "max": 0.0076643070206046104
+        },
+        {
+          "parameter": "head.fc2.base.weight",
+          "mean": 6.193627086759079e-06,
+          "sum": 0.007729646749794483,
+          "max": 0.00023820287606213242
+        },
+        {
+          "parameter": "head.fc2.weight",
+          "mean": 5.860968599336047e-07,
+          "sum": 0.005851591005921364,
+          "max": 1.3001627849007491e-05
+        }
+      ]
+    }
+  ]
+}

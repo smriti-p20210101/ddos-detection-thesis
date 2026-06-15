@@ -1,0 +1,14 @@
+{
+  "phase1_test_acc_before_phase2": 0.8045,
+  "phase1_test_acc_after_phase2": 0.5734,
+  "phase2_test_acc_after_phase2": 0.9834333333333334,
+  "phase1_test_macro_f1_after_phase2": 0.43111882107653815,
+  "phase2_test_macro_f1_after_phase2": 0.5246286644077941,
+  "phase1_latency_ms_per_sample": 0.033234257807635004,
+  "phase2_latency_ms_per_sample": 0.044711132807151444,
+  "bwt": -0.23109999999999997,
+  "average_accuracy_ak": 0.7784166666666668,
+  "num_features": 39,
+  "num_classes_union": 13,
+  "device": "cuda"
+}

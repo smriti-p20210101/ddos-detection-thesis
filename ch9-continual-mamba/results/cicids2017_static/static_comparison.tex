@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Matched static CICIDS2017 comparison against the reported MAMBA-KAN study.}
+\label{tab:cicids2017-static-reference}
+\begin{tabular}{lccccc}
+\hline
+Method & Avg. & AC & PR & RC & F1 \\
+\hline
+RF & reported & 0.9983 & 0.9059 & 0.8732 & 0.8892 \\
+CNN & reported & 0.9979 & 0.8935 & 0.8256 & 0.8582 \\
+LSTM & reported & 0.9976 & 0.8282 & 0.8209 & 0.8245 \\
+YaTC & reported & 0.9731 & 0.9733 & 0.9731 & 0.9731 \\
+NetMamba & reported & 0.9624 & 0.9626 & 0.9625 & 0.9625 \\
+MAMBA-KAN (reported) & reported & 0.9653 & 0.9654 & 0.9654 & 0.9654 \\
+mamba\_kan (this work, macro) & macro & 0.9792 & 0.7379 & 0.7020 & 0.6944 \\
+mamba\_kan (this work, weighted) & weighted & 0.9792 & 0.9800 & 0.9792 & 0.9792 \\
+\hline
+\end{tabular}
+\end{table}

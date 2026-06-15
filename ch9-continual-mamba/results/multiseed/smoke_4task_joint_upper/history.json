@@ -1,0 +1,9 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 1.7328762614980657,
+    "mean_val_accuracy": 0.85275,
+    "mean_val_macro_f1": 0.7510308826415488,
+    "lr": 0.001
+  }
+]

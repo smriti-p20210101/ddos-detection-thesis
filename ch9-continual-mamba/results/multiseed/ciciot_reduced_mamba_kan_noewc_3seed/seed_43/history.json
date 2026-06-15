@@ -1,0 +1,110 @@
+[
+  {
+    "task": "phase1",
+    "task_index": 0,
+    "epoch": 1,
+    "train_loss": 0.6111231312003153,
+    "val_accuracy": 0.8053,
+    "val_macro_f1": 0.7483025087748705,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase1",
+    "task_index": 0,
+    "epoch": 2,
+    "train_loss": 0.5685842586458747,
+    "val_accuracy": 0.8070666666666667,
+    "val_macro_f1": 0.7531298159676224,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase1",
+    "task_index": 0,
+    "epoch": 3,
+    "train_loss": 0.5645019475612217,
+    "val_accuracy": 0.8068666666666666,
+    "val_macro_f1": 0.725382535182329,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase1",
+    "task_index": 0,
+    "epoch": 4,
+    "train_loss": 0.5628081733049386,
+    "val_accuracy": 0.8076333333333333,
+    "val_macro_f1": 0.7341938334388649,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase1",
+    "task_index": 0,
+    "epoch": 5,
+    "train_loss": 0.5620797133079568,
+    "val_accuracy": 0.8065333333333333,
+    "val_macro_f1": 0.7473149268375382,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase1",
+    "task_index": 0,
+    "epoch": 6,
+    "train_loss": 0.5618603964917895,
+    "val_accuracy": 0.8046666666666666,
+    "val_macro_f1": 0.7282516204527184,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase2",
+    "task_index": 1,
+    "epoch": 1,
+    "train_loss": 0.595949358195575,
+    "val_accuracy": 0.8015,
+    "val_macro_f1": 0.3696869383094149,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase2",
+    "task_index": 1,
+    "epoch": 2,
+    "train_loss": 0.5845612540790246,
+    "val_accuracy": 0.8014,
+    "val_macro_f1": 0.3567045175628121,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase2",
+    "task_index": 1,
+    "epoch": 3,
+    "train_loss": 0.5828047070283532,
+    "val_accuracy": 0.801,
+    "val_macro_f1": 0.36994780475267536,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase2",
+    "task_index": 1,
+    "epoch": 4,
+    "train_loss": 0.581897883081599,
+    "val_accuracy": 0.8014,
+    "val_macro_f1": 0.36067741938803854,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase2",
+    "task_index": 1,
+    "epoch": 5,
+    "train_loss": 0.58095660409016,
+    "val_accuracy": 0.8024333333333333,
+    "val_macro_f1": 0.4165763704060593,
+    "lr": 0.0008
+  },
+  {
+    "task": "phase2",
+    "task_index": 1,
+    "epoch": 6,
+    "train_loss": 0.5803445983970531,
+    "val_accuracy": 0.8025666666666667,
+    "val_macro_f1": 0.4317736279363068,
+    "lr": 0.0008
+  }
+]

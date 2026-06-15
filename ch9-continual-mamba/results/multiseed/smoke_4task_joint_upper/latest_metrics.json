@@ -1,0 +1,53 @@
+{
+  "num_tasks": 4,
+  "task_names": [
+    "task1_flood_ddos",
+    "task2_flood_dos",
+    "task3_mirai",
+    "task4_recon"
+  ],
+  "joint_training_upper_bound": true,
+  "accuracy_matrix": [
+    [
+      0.972,
+      0.991,
+      0.795,
+      0.669
+    ]
+  ],
+  "macro_f1_matrix": [
+    [
+      0.9627025552753542,
+      0.9883079978383299,
+      0.6852011127110269,
+      0.34308875148218365
+    ]
+  ],
+  "latency_matrix": [
+    [
+      0.11195593751835986,
+      0.09547066406412341,
+      0.08889542968972819,
+      0.09837179691203346
+    ]
+  ],
+  "average_accuracy_ak": 0.85675,
+  "average_macro_f1_final": 0.7448251043267238,
+  "num_features": 39,
+  "num_classes_union": 14,
+  "device": "cuda",
+  "continual_method": "joint_upper_bound",
+  "seed": 42,
+  "task1_flood_ddos_test_acc_after_final": 0.972,
+  "task1_flood_ddos_test_macro_f1_after_final": 0.9627025552753542,
+  "task1_flood_ddos_latency_ms_per_sample_after_final": 0.11195593751835986,
+  "task2_flood_dos_test_acc_after_final": 0.991,
+  "task2_flood_dos_test_macro_f1_after_final": 0.9883079978383299,
+  "task2_flood_dos_latency_ms_per_sample_after_final": 0.09547066406412341,
+  "task3_mirai_test_acc_after_final": 0.795,
+  "task3_mirai_test_macro_f1_after_final": 0.6852011127110269,
+  "task3_mirai_latency_ms_per_sample_after_final": 0.08889542968972819,
+  "task4_recon_test_acc_after_final": 0.669,
+  "task4_recon_test_macro_f1_after_final": 0.34308875148218365,
+  "task4_recon_latency_ms_per_sample_after_final": 0.09837179691203346
+}

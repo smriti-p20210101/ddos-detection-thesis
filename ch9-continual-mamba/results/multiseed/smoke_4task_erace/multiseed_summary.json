@@ -1,0 +1,112 @@
+{
+  "average_accuracy_ak": {
+    "mean": 0.839,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "average_forgetting": {
+    "mean": 0.010666666666666677,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "average_macro_f1_final": {
+    "mean": 0.7344409523747233,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "bwt": {
+    "mean": 0.07333333333333332,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "ewc_lambda": {
+    "mean": 1.0,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "num_classes_union": {
+    "mean": 14.0,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "num_features": {
+    "mean": 39.0,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "num_tasks": {
+    "mean": 4.0,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "replay_buffer_size": {
+    "mean": 1000.0,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "seed": {
+    "mean": 42.0,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "task1_flood_ddos_latency_ms_per_sample_after_final": {
+    "mean": 0.08666488279231999,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "task1_flood_ddos_test_acc_after_final": {
+    "mean": 0.965,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "task1_flood_ddos_test_macro_f1_after_final": {
+    "mean": 0.9589822429609829,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "task2_flood_dos_latency_ms_per_sample_after_final": {
+    "mean": 0.1143126562510588,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "task2_flood_dos_test_acc_after_final": {
+    "mean": 0.969,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "task2_flood_dos_test_macro_f1_after_final": {
+    "mean": 0.9589374717680612,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "task3_mirai_latency_ms_per_sample_after_final": {
+    "mean": 0.07599070313517586,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "task3_mirai_test_acc_after_final": {
+    "mean": 0.754,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "task3_mirai_test_macro_f1_after_final": {
+    "mean": 0.7157824701199893,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "task4_recon_latency_ms_per_sample_after_final": {
+    "mean": 0.15299316405616992,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "task4_recon_test_acc_after_final": {
+    "mean": 0.668,
+    "std": 0.0,
+    "n": 1.0
+  },
+  "task4_recon_test_macro_f1_after_final": {
+    "mean": 0.3040616246498599,
+    "std": 0.0,
+    "n": 1.0
+  }
+}

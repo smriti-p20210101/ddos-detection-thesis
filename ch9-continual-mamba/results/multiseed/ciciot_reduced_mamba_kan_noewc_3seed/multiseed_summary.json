@@ -1,0 +1,117 @@
+{
+  "average_accuracy_ak": {
+    "mean": 0.6322888888888888,
+    "std": 0.057824104290832214,
+    "n": 3.0
+  },
+  "average_forgetting": {
+    "mean": 0.4494222222222222,
+    "std": 0.04771142808982319,
+    "n": 3.0
+  },
+  "average_macro_f1_final": {
+    "mean": 0.38709198439084264,
+    "std": 0.042230685765662884,
+    "n": 3.0
+  },
+  "bwt": {
+    "mean": -0.4494222222222222,
+    "std": 0.04771142808982319,
+    "n": 3.0
+  },
+  "ewc_lambda": {
+    "mean": 0.0,
+    "std": 0.0,
+    "n": 3.0
+  },
+  "num_classes_union": {
+    "mean": 13.0,
+    "std": 0.0,
+    "n": 3.0
+  },
+  "num_features": {
+    "mean": 39.0,
+    "std": 0.0,
+    "n": 3.0
+  },
+  "num_tasks": {
+    "mean": 2.0,
+    "std": 0.0,
+    "n": 3.0
+  },
+  "phase1_latency_ms_per_sample": {
+    "mean": 0.02504185547043865,
+    "std": 0.0008731349985449969,
+    "n": 3.0
+  },
+  "phase1_latency_ms_per_sample_after_final": {
+    "mean": 0.02504185547043865,
+    "std": 0.0008731349985449969,
+    "n": 3.0
+  },
+  "phase1_test_acc_after_final": {
+    "mean": 0.35065555555555555,
+    "std": 0.05342673418735161,
+    "n": 3.0
+  },
+  "phase1_test_acc_after_phase2": {
+    "mean": 0.35065555555555555,
+    "std": 0.05342673418735161,
+    "n": 3.0
+  },
+  "phase1_test_acc_before_phase2": {
+    "mean": 0.8000777777777778,
+    "std": 0.009201529663493373,
+    "n": 3.0
+  },
+  "phase1_test_macro_f1_after_final": {
+    "mean": 0.2917378645144442,
+    "std": 0.023244093205352104,
+    "n": 3.0
+  },
+  "phase1_test_macro_f1_after_phase2": {
+    "mean": 0.2917378645144442,
+    "std": 0.023244093205352104,
+    "n": 3.0
+  },
+  "phase2_latency_ms_per_sample": {
+    "mean": 0.025251582030705322,
+    "std": 0.0018165656786583559,
+    "n": 3.0
+  },
+  "phase2_latency_ms_per_sample_after_final": {
+    "mean": 0.025251582030705322,
+    "std": 0.0018165656786583559,
+    "n": 3.0
+  },
+  "phase2_test_acc_after_final": {
+    "mean": 0.9139222222222222,
+    "std": 0.09901212234050118,
+    "n": 3.0
+  },
+  "phase2_test_acc_after_phase2": {
+    "mean": 0.9139222222222222,
+    "std": 0.09901212234050118,
+    "n": 3.0
+  },
+  "phase2_test_macro_f1_after_final": {
+    "mean": 0.48244610426724105,
+    "std": 0.0681521504422308,
+    "n": 3.0
+  },
+  "phase2_test_macro_f1_after_phase2": {
+    "mean": 0.48244610426724105,
+    "std": 0.0681521504422308,
+    "n": 3.0
+  },
+  "replay_buffer_size": {
+    "mean": 0.0,
+    "std": 0.0,
+    "n": 3.0
+  },
+  "seed": {
+    "mean": 43.0,
+    "std": 1.0,
+    "n": 3.0
+  }
+}
