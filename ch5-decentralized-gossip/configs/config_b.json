@@ -1,0 +1,20 @@
+{
+  "_comment": "Config B — 2048 register entries (~8 KB SRAM)",
+  "_reference": "Paper Section 6.1 (register granularity sensitivity)",
+  "_result": "F1=0.919, FPR=0.05 (marginal improvement over Config A)",
+
+  "sketch_size":        2048,
+  "sram_kb":            8,
+  "detection_threshold": 5,
+  "gossip_flag_alert":   1,
+  "gossip_flag_sync":    2,
+  "anti_entropy_interval_ms": 100,
+  "rumour_stop_prob":    0.5,
+
+  "expected_f1":         0.919,
+  "expected_fpr":        0.05,
+  "expected_tpr":        0.950,
+  "expected_precision":  1.0,
+
+  "note": "Doubling register entries gives small F1 gain (0.904→0.919) and FPR reduction (0.06→0.05). Config A is preferred for resource-constrained edge deployment."
+}

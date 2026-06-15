@@ -1,0 +1,22 @@
+# Chapter 5 — Decentralised DDoS Detection
+# Install with: pip install -r requirements.txt
+
+# Network emulation
+mininet>=2.3.0
+
+# P4 toolchain (install separately — see INSTALL.md)
+# p4c (https://github.com/p4lang/p4c)
+# behavioral-model / BMv2 (https://github.com/p4lang/behavioral-model)
+# p4app (https://github.com/p4lang/p4app)
+
+# Data analysis and plotting
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+scipy>=1.10.0
+
+# Metrics
+scikit-learn>=1.3.0
+
+# PCAP handling (for CIC-DDoS2019 replay)
+scapy>=2.5.0

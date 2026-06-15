@@ -1,0 +1,20 @@
+{
+  "_comment": "Config A — 1024 register entries (~4 KB SRAM)",
+  "_reference": "Paper Section 5.4, Section 6.1",
+  "_result": "F1=0.904, FPR=0.06 (baseline config)",
+
+  "sketch_size":        1024,
+  "sram_kb":            4,
+  "detection_threshold": 5,
+  "gossip_flag_alert":   1,
+  "gossip_flag_sync":    2,
+  "anti_entropy_interval_ms": 100,
+  "rumour_stop_prob":    0.5,
+
+  "expected_f1":         0.904,
+  "expected_fpr":        0.06,
+  "expected_tpr":        0.935,
+  "expected_precision":  1.0,
+
+  "note": "Preferred config for edge switches with limited SRAM. Provides excellent detection at very low memory cost."
+}
