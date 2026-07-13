@@ -1,0 +1,9 @@
+# Python dependencies for Ch.7 (Ryu controller app + Decision Tree inference).
+#
+# NOT covered here (system-level): Mininet, Open vSwitch, hping3.
+
+ryu==4.34
+eventlet==0.33.3         # Ryu's networking dependency; do not upgrade
+                          # independently of ryu==4.34 on Python 3.10.
+scikit-learn==1.4.2        # to unpickle/rerun the DecisionTreeClassifier
+pandas==2.2.2
