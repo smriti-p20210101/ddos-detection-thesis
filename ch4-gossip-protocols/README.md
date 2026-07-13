@@ -1,86 +1,105 @@
 # Ch.4 — Gossip Protocol-Based Threat Dissemination (Epidemic vs. Probability-Based)
 
 Compares two gossip dissemination strategies for spreading entropy-based DDoS
-alerts natively in P4, on a 5-switch / 3-host Containernet topology. Corresponds
-to the AINA 2025 paper (DOI: 10.1007/978-3-031-82838-6_11).
+alerts natively in P4. Corresponds to the AINA 2025 paper, "DDoS Attack
+Detection in Data Plane" (DOI: 10.1007/978-3-031-82838-6_11).
 
-## Architecture
+This chapter builds directly on Ch.3's `ddosd.p4` (same entropy/EWMA/EWMMD
+core), adding randomised gossip dissemination on top.
 
-```
-        host1        host2       host3 (targets)
-          \            |            /
-           s1 -------- s2 -------- s3
-           |            |           |
-           s4 --------- +---------- s5
+## Repository contents (as they actually exist in this repo)
 
-  Each switch runs entropy.p4 (from Ch.3) + gossip dissemination logic.
-  On detecting an anomaly, a switch clones the packet (clone3) and forwards
-  it either to ALL neighbours (Epidemic) or to ONE randomly selected
-  neighbour (Probability-Based), carrying the custom ddosd_t header.
-```
-
-- **Custom header `ddosd_t`**: source-IP entropy, destination-IP entropy, and a
-  1-bit `alarm` field, tagged with EtherType `0x6605` (vs. `0x0800` for plain IPv4).
-- **Dissemination via `clone3`**: the P4 `clone3` primitive + a `mirroring_add`
-  session (configured via `simple_switch_CLI`) forwards a copy of the alert
-  packet to one or more egress ports without touching the original packet.
-- **Epidemic**: broadcasts the alert to all neighbouring ports.
-- **Probability-based**: uses the P4 `random()` primitive to pick a single
-  neighbour's mirroring session per gossip event.
-- **Convergence**: both protocols converge to the same steady-state entropy
-  once the update has propagated network-wide — the comparison is about *how
-  fast* they get there, not the final value.
-
-## Repository contents
+The real code lives one level deeper, in `ddosd-p4/` — the chapter directory
+itself only holds a top-level `Dockerfile` and `requirements.txt`:
 
 ```
 ch4-gossip-protocols/
-├── p4src/
-│   ├── epidemic_gossip.p4
-│   └── probability_gossip.p4
-├── containernet/
-│   └── topology.py        # 5 switch / 3 host Containernet topology
-├── scripts/
-│   ├── run_epidemic.sh
-│   ├── run_probability.sh
-│   └── capture_wireshark.sh
-└── analysis/
-    └── plot_convergence.py  # entropy-vs-packets-sampled, per-switch entropy plots
+├── Dockerfile
+├── requirements.txt
+└── ddosd-p4/
+    ├── src/
+    │   ├── ddosd.p4        # Ch.3's ddosd.p4 + probability-based gossip (see below)
+    │   ├── headers.p4
+    │   └── parser.p4
+    ├── scripts/
+    │   ├── main.py           # updated pcap parser: reads src_entropy/dst_entropy/meta_alarm
+    │   ├── traffic.py
+    │   ├── veth.sh
+    │   ├── run.sh
+    │   └── control_rules.txt
+    ├── Makefile
+    └── LICENSE               # GPLv3, inherited from Ch.3's upstream source
 ```
+
+## What actually changed vs. Ch.3's `ddosd.p4`
+
+Diffing against Ch.3's version, the meaningful change is in the gossip
+dissemination call:
+
+```p4
+// Ch.3 (fixed target):
+clone3(CloneType.I2E, CPU_SESSION, { ... });
+
+// Ch.4 (probability-based — picks 1 of up to 4 sessions at random):
+bit<32> session;
+random(session, 0, 3);
+clone3(CloneType.I2E, session, { ... });
+```
+
+**This checked-in version implements the probability-based protocol.** To
+reproduce the **epidemic** comparison point from the paper (broadcast to all
+neighbours), change this block to issue one `clone3` per neighbour session
+(sessions 0–3) instead of selecting one at random — the rest of the pipeline
+(entropy calculation, EWMA/EWMMD thresholding, header format) is unchanged
+between the two variants. Consider keeping both as separate `.p4` files
+(e.g. `ddosd_epidemic.p4` / `ddosd_probability.p4`) once you make this change,
+so both are reproducible side-by-side rather than one overwriting the other.
+
+`scripts/main.py` here also differs from Ch.3's: it parses a **shorter**
+header (`src_entropy`, `dst_entropy`, `meta_alarm` only, via a proper `scapy`
+`Packet` subclass) rather than the full 9-field header Ch.3 uses — reflecting
+that this chapter's analysis focuses on convergence behaviour, not the raw
+EWMA/EWMMD internals. This file does **not** have the `_main_`/`__main__`
+typo that Ch.3's has.
 
 ## Setup
 
-### Docker (recommended — Containernet needs Docker-in-Docker)
+### Docker (recommended)
 ```bash
 docker build -t ch4-gossip .
-docker run --rm -it --privileged -v /var/run/docker.sock:/var/run/docker.sock ch4-gossip
+docker run --rm -it --privileged ch4-gossip
 ```
 
 ### Local install
-1. P4 toolchain (p4c + BMv2) as in Ch.3.
-2. Containernet (Mininet fork with Docker container hosts):
-   `git clone https://github.com/containernet/containernet && cd containernet && sudo ./install.sh`
-3. `pip install -r requirements.txt`
+Same P4 toolchain as Ch.3 (`p4c` + BMv2 + Mininet) — see Ch.3's README for
+the install steps; nothing chapter-specific is needed beyond that.
 
 ## Running
+
 ```bash
-p4c --target bmv2 --arch v1model -o build p4src/epidemic_gossip.p4
-sudo python3 containernet/topology.py --protocol epidemic
-sudo bash scripts/run_epidemic.sh
-# repeat with probability_gossip.p4 / run_probability.sh
-python3 analysis/plot_convergence.py --epidemic logs/epidemic.csv --probability logs/probability.csv
+cd ddosd-p4
+make
+sudo bash scripts/veth.sh
+sudo bash scripts/run.sh
+bash scripts/traffic.py
+python3 scripts/main.py   # parses captured src_entropy/dst_entropy/meta_alarm
 ```
 
 ## Expected output
-- Destination entropy declining toward 0 under simulated attack for both
-  protocols, with Epidemic converging faster (fewer packets sampled).
-- Per-switch entropy trace showing all 5 switches converging to within ~0.1
-  of each other once gossip has propagated.
+
+- Destination entropy declining under simulated attack, with the
+  probability-based protocol converging more slowly than a full-broadcast
+  (epidemic) implementation would — see the paper's Fig. 2/3 for the
+  reference comparison.
 - F1 = 0.935 for the better-performing configuration on this topology.
 
 ## Datasets / traffic
-Synthetic traffic only (Mininet/Containernet hosts, `hping3` for the attack phase).
+
+Synthetic traffic only, via `scripts/traffic.py`.
 
 ## Citation
-Smriti, K. HariBabu, S. Garg, "DDoS Attack Detection in Data Plane," AINA 2025,
-LNDECT vol. 252, Springer.
+
+Smriti, K. HariBabu, S. Garg, "DDoS Attack Detection in Data Plane," in
+Advanced Information Networking and Applications (AINA 2025), L. Barolli (Ed.),
+Lecture Notes on Data Engineering and Communications Technologies, vol. 252,
+Springer, Cham, doi: 10.1007/978-3-031-82838-6_11.

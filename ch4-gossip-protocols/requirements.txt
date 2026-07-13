@@ -1,5 +1,6 @@
+# Python dependencies for Ch.4's ddosd-p4/scripts/ (traffic generation + pcap analysis).
+#
+# NOT covered here (system-level — see README.md "Setup"):
+#   - p4c (P4 compiler), BMv2 / simple_switch, Mininet
+
 scapy==2.5.0
-matplotlib==3.8.4
-numpy==1.26.4
-pandas==2.2.2
-pyshark==0.6           # parsing Wireshark/tshark captures for convergence analysis
