@@ -23,19 +23,35 @@ setup and execution steps.
 
 ---
 
-## Repository Structure
+| Directory | Chapter | Topic | Headline result |
+|---|---|---|---|
+| [`ch3-entropy-p4/`](ch3-entropy-p4/) | 3 | Entropy-based DDoS detection in the P4 data plane (EWMA/EWMD, Count-Min Sketch) | SYN flood detected within 2 observation windows, sub-ms latency |
+| [`ch4-gossip-protocols/`](ch4-gossip-protocols/) | 4 | Epidemic vs. probability-based gossip dissemination in P4 | F1 = 0.935 on a 5-switch topology |
+| [`ch5-decentralized-gossip/`](ch5-decentralized-gossip/) | 5 | Anti-Entropy vs. Rumor-Mongering at production scale | 70 ms latency invariant to 150 switches, F1 = 0.904 |
+| [`ch6-cooperative-multops/`](ch6-cooperative-multops/) | 6 | Cooperative MULTOPS for asymmetric-routing robustness | 100% detection, 0% false positives |
+| [`ch7-ml-sdn/`](ch7-ml-sdn/) | 7 | Decision-Tree SDN detection latency decomposition | 0.22 s (fast) → 4.75 s (flood) detection time |
+| [`ch8-p4xgboost/`](ch8-p4xgboost/) | 8 | Hybrid P4 + XGBoost two-stage defence | 97.4% accuracy, 28 ms median latency, 8% controller CPU |
+| [`ch9-continual-mamba/`](ch9-continual-mamba/) | 9 | Continual learning (Mamba + KAN + EWC) for IoT IDS | Ak = 78.38%, BWT = −21.99 (CIC-IoT2023) |
+| [`ch10-random-forest/`](ch10-random-forest/) | 10 | Correlation-aware Random Forest + Packet Byte Ratio | 99.4% in-distribution, 25.32% cross-dataset |
 
-| Directory | Chapter | Paper |
-|---|---|---|
-| `ch3-entropy-p4/` | Ch. 3 — Entropy-Based P4 Detection | IEEE LCN 2023 |
-| `ch4-gossip-protocols/` | Ch. 4 — Gossip Protocol Comparison | AINA 2025 |
-| `ch5-decentralized-gossip/` | Ch. 5 — Decentralised Gossip at Scale | ACM Trans. 2026 |
-| `ch6-cooperative-multops/` | Ch. 6 — Cooperative MULTOPS | AINA 2026 |
-| `ch7-ml-sdn/` | Ch. 7 — ML-SDN Detection Latency | ICOIN 2025 |
-| `ch8-p4xgboost/` | Ch. 8 — P4-XGBoost Hybrid Defence | Under preparation |
-| `ch9-continual-mamba/` | Ch. 9 — Continual Mamba IoT IDS | Under preparation |
-| `ch10-random-forest/` | Ch. 10 — Random Forest + PBR | Under preparation |
+---
 
+## General notes for anyone extending this work
+
+- **P4/Mininet chapters (3, 4, 5, 8)** require a working P4 toolchain (`p4c` compiler)
+  and the BMv2 software switch (`simple_switch` / `simple_switch_grpc`), plus Mininet.
+  These are **not** pip-installable — see the Docker section in each of those
+  chapters' READMEs.
+- **Ch.6** uses the Click Modular Router instead of P4 — it has its own, separate
+  toolchain (see `ch6-cooperative-multops/README.md`).
+- **Ch.7, 9, 10** are pure Python/ML projects and only need the pip packages in
+  each `requirements.txt`.
+- Dataset download links (CIC-DDoS2019, CICIDS2017, CIC-IoT2023, ToN-IoT, Kaggle
+  DDoS-SDN) are **not redistributed** in this repo — each chapter README links to
+  the original source.
+- Every chapter directory is independent: clone the repo, `cd` into the chapter you
+  care about, and follow that chapter's README from a clean environment (or its
+  Dockerfile) — you don't need the other seven chapters' dependencies installed.
 ---
 
 ## Key Results
