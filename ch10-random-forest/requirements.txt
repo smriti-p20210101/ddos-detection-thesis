@@ -1,0 +1,9 @@
+# Python dependencies for Ch.10's notebooks (verified against actual imports
+# in cicids2017_analysis.ipynb and cicddos2019_cross_dataset.ipynb).
+
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.4.2
+matplotlib==3.8.4
+seaborn==0.13.2
+jupyter==1.0.0
