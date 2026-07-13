@@ -1,9 +1,6 @@
-# Python dependencies for Ch.3 (control-plane prototype + result plotting).
-# The P4/BMv2/Mininet toolchain itself is a system-level install — see README.md
-# and Dockerfile, it is NOT pip-installable.
+# Python dependencies for Ch.3's scripts/ (traffic generation + pcap analysis).
+#
+# NOT covered here (system-level — see README.md "Setup"):
+#   - p4c (P4 compiler), BMv2 / simple_switch, Mininet
 
-scapy==2.5.0            # packet crafting / sniffing for the control-plane prototype
-matplotlib==3.8.4        # entropy / EWMA / EWMD plots
-numpy==1.26.4
-pandas==2.2.2             # logging & CSV handling
-p4runtime-lib==0.0.1     # only needed if you drive the switch via P4Runtime instead of CLI
+scapy==2.5.0             # ddosd_t header (de)serialization in scripts/main.py, packet crafting in traffic.py
