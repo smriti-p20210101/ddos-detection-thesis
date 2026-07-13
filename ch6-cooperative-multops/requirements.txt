@@ -1,0 +1,7 @@
+# Python dependencies for Ch.6's aggregator (aggregator/aggregator.py).
+# The active implementation uses only the Python standard library
+# (socket, struct, threading, time) — nothing here is required just to run it.
+# These are optional, only needed if you add logging/plotting on top:
+
+matplotlib==3.8.4
+pandas==2.2.2
