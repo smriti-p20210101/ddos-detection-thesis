@@ -1,4 +1,4 @@
-# Ch.7 — Machine Learning-Assisted DDoS Detection in SDN: Latency Decomposition
+# Machine Learning-Assisted DDoS Detection in SDN: Latency Decomposition
 
 Measures and decomposes end-to-end SDN-based ML detection time into (a)
 controller <-> switch communication delay and (b) ML inference time, using a
