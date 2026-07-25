@@ -31,7 +31,7 @@ setup and execution steps.
 | [`ch6-cooperative-multops/`](ch6-cooperative-multops/) | 6 | Cooperative MULTOPS for asymmetric-routing robustness | 100% detection, 0% false positives |
 | [`ch7-p4xgboost/`](ch7-p4xgboost/) | 7 | Hybrid P4 + XGBoost two-stage defence | 97.4% accuracy, 28 ms median latency, 8% controller CPU |
 | [`ch8-continual-mamba/`](ch8-continual-mamba/) | 8 | Continual learning (Mamba + KAN + EWC) for IoT IDS | Ak = 78.38%, BWT = −21.99 (CIC-IoT2023) |
-| [`ch9-random-forest/`](ch19-random-forest/) | 9 | Correlation-aware Random Forest + Packet Byte Ratio | 99.4% in-distribution, 25.32% cross-dataset |
+| [`ch9-random-forest/`](ch9-random-forest/) | 9 | Correlation-aware Random Forest + Packet Byte Ratio | 99.4% in-distribution, 25.32% cross-dataset |
 
 ---
 
