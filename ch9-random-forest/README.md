@@ -1,4 +1,4 @@
-# Ch.10 — Correlation-Aware Random Forest for DDoS Detection (Packet Byte Ratio)
+# Ch.9 — Correlation-Aware Random Forest for DDoS Detection (Packet Byte Ratio)
 
 Random Forest DDoS classification evaluated on CICIDS2017 and CICDDoS2019,
 including a cross-dataset generalisation test (train on one, test on the
