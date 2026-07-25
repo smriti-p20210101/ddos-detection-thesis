@@ -29,9 +29,9 @@ setup and execution steps.
 | [`ch4-gossip-protocols/`](ch4-gossip-protocols/) | 4 | Epidemic vs. probability-based gossip dissemination in P4 | F1 = 0.935 on a 5-switch topology |
 | [`ch5-decentralized-gossip/`](ch5-decentralized-gossip/) | 5 | Anti-Entropy vs. Rumor-Mongering at production scale | 70 ms latency invariant to 150 switches, F1 = 0.904 |
 | [`ch6-cooperative-multops/`](ch6-cooperative-multops/) | 6 | Cooperative MULTOPS for asymmetric-routing robustness | 100% detection, 0% false positives |
-| [`ch7-p4xgboost/`](ch8-p4xgboost/) | 7 | Hybrid P4 + XGBoost two-stage defence | 97.4% accuracy, 28 ms median latency, 8% controller CPU |
-| [`ch8-continual-mamba/`](ch9-continual-mamba/) | 8 | Continual learning (Mamba + KAN + EWC) for IoT IDS | Ak = 78.38%, BWT = −21.99 (CIC-IoT2023) |
-| [`ch9-random-forest/`](ch10-random-forest/) | 9 | Correlation-aware Random Forest + Packet Byte Ratio | 99.4% in-distribution, 25.32% cross-dataset |
+| [`ch7-p4xgboost/`](ch7-p4xgboost/) | 7 | Hybrid P4 + XGBoost two-stage defence | 97.4% accuracy, 28 ms median latency, 8% controller CPU |
+| [`ch8-continual-mamba/`](ch8-continual-mamba/) | 8 | Continual learning (Mamba + KAN + EWC) for IoT IDS | Ak = 78.38%, BWT = −21.99 (CIC-IoT2023) |
+| [`ch9-random-forest/`](ch19-random-forest/) | 9 | Correlation-aware Random Forest + Packet Byte Ratio | 99.4% in-distribution, 25.32% cross-dataset |
 
 ---
 
