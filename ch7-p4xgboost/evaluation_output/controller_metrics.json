@@ -1,0 +1,8 @@
+{
+    "digests_processed": 1,
+    "malicious_detected": 1,
+    "benign_detected": 0,
+    "blacklisted_count": 0,
+    "average_mitigation_latency_ms": 11.07931137084961,
+    "total_mitigated": 1
+}

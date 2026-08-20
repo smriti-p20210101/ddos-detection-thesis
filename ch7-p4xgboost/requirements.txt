@@ -1,20 +1,19 @@
-# Python dependencies for Ch.8.
+# Python dependencies for Ch.7 (P4-XGBoost).
 #
-# IMPORTANT: as currently implemented, controller/app.py and its
-# dependencies (controller/p4/p4runtime.py, controller/ml/xgboost_model.py)
-# are a self-contained Python SIMULATION of the P4-XGBoost pipeline
-# (P4RuntimeInterface uses time.sleep() to emulate switch latency;
-# XGBoostEnsemble reads its hyperparameters from config/settings.yaml but
-# does not call the real `xgboost` library). This is why the previous
-# requirements.txt only listed matplotlib/numpy — that was actually
-# consistent with the code, just missing test/config dependencies below.
-#
-# If you later wire this up to a REAL BMv2 gRPC target + Redis + TRex
-# pipeline (matching the full architecture described in the paper), you'll
-# additionally need: xgboost, p4runtime-sh, grpcio, redis. Not included here
-# since the checked-in code doesn't call them yet.
+# controller/app.py and its dependencies now run a REAL pipeline against a
+# real BMv2 simple_switch: real Thrift RPC (controller/p4/p4runtime.py),
+# real trained XGBoost (controller/ml/xgboost_model.py), real Redis-backed
+# feature extraction (controller/core/features.py). See README.md for the
+# full rebuild notes.
 
 matplotlib==3.8.4
 numpy==1.26.4
+pandas
 pyyaml==6.0.1            # controller/ml/xgboost_model.py reads config/settings.yaml
-pytest==8.2.0              # tests/test_model.py
+pytest==8.2.0             # tests/test_model.py
+redis                     # controller/core/features.py sliding-window cache
+xgboost                   # controller/ml/xgboost_model.py, controller/ml/train_model.py
+scikit-learn              # temporal split, confusion matrix, classification report
+imbalanced-learn          # scripts/tune_model_search.py -- SMOTE oversampling in a leakage-safe CV pipeline
+scapy                     # controller/app.py live packet sniffing, controller/p4/digest_listener.py
+thrift                    # controller/p4/p4runtime.py real Thrift RPC client (bm_runtime bindings)

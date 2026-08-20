@@ -2,25 +2,51 @@ from __future__ import annotations
 
 import os
 
+import xgboost as xgb
+
 class XGBoostEnsemble:
     """
-    XGBoost Model matching the paper params:
+    Real XGBoost model, retrained after a real hyperparameter/feature search
+    (see controller/ml/train_model.py's module docstring):
     - 100 estimators
-    - max tree depth 6
-    - learning rate 0.1
+    - max tree depth 9 (tuned via leakage-safe CV search; the thesis's
+      original depth 6 measurably underperformed on the real combined
+      UDP+SYN dataset)
+    - learning rate 0.2 (tuned)
     - binary:logistic
+
+    Loads the artifact trained by controller/ml/train_model.py on real
+    CIC-DDoS2019 packet data (see that module's docstring for dataset scope
+    and label ground truth) -- does not retrain on every controller start.
     """
-    
+
+    FEATURE_COLUMNS = ["pkt_rate", "byte_rate", "duration", "proto_var", "port_div",
+                       "size_var", "tcp_flags", "inter_arrival", "syn_noack_ratio", "ack_ratio"]
+
     def __init__(self):
         self.params = {}
         self.reload_params()
+        self.booster = self._load_model()
+
+    def _load_model(self) -> xgb.XGBClassifier:
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        model_path = os.path.join(base_dir, "controller", "ml", "model.json")
+        if not os.path.exists(model_path):
+            raise FileNotFoundError(
+                f"No trained model at {model_path}. Run "
+                "`python -m controller.ml.train_model` first to extract features "
+                "and train a real model -- there is no fallback simulation."
+            )
+        model = xgb.XGBClassifier()
+        model.load_model(model_path)
+        return model
         
     def reload_params(self) -> None:
         """Dynamically reloads XGBoost model parameters from config/settings.yaml."""
         default_params = {
             'n_estimators': 100,
-            'max_depth': 6,
-            'learning_rate': 0.1,
+            'max_depth': 9,
+            'learning_rate': 0.2,
             'objective': 'binary:logistic'
         }
         
@@ -71,12 +97,10 @@ class XGBoostEnsemble:
         
     def predict_proba(self, features: list[float]) -> list[list[float]]:
         """
-        Predicts malicious probability based on the 8D vector.
-        Features mapping: [pkt_rate, byte_rate, duration, proto_var, port_div, size_var, tcp_flags, inter_arrival]
+        Predicts malicious probability based on the 10D vector, via the real
+        trained XGBoost booster loaded in __init__.
+        Features mapping: [pkt_rate, byte_rate, duration, proto_var, port_div, size_var, tcp_flags,
+        inter_arrival, syn_noack_ratio, ack_ratio]
         """
-        pkt_rate = features[0]
-        
-        if pkt_rate > 500:
-            return [[0.01, 0.99]]
-        return [[0.99, 0.01]]
+        return self.booster.predict_proba([features]).tolist()
 

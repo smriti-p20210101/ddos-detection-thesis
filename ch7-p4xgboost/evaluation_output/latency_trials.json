@@ -1,0 +1,122 @@
+[
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 1.4350414276123047,
+    "ml_inference_ms": 12.541055679321289,
+    "rule_install_ms": 0.6797313690185547,
+    "total_ms": 14.662981033325195,
+    "trial": 1
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 1.0845661163330078,
+    "ml_inference_ms": 9.531974792480469,
+    "rule_install_ms": 0.6372928619384766,
+    "total_ms": 11.258125305175781,
+    "trial": 2
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 0.9360313415527344,
+    "ml_inference_ms": 9.971141815185547,
+    "rule_install_ms": 0.5171298980712891,
+    "total_ms": 11.428594589233398,
+    "trial": 3
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 1.497030258178711,
+    "ml_inference_ms": 10.208845138549805,
+    "rule_install_ms": 0.7264614105224609,
+    "total_ms": 12.439489364624023,
+    "trial": 4
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 1.3837814331054688,
+    "ml_inference_ms": 11.27171516418457,
+    "rule_install_ms": 0.9233951568603516,
+    "total_ms": 13.585805892944336,
+    "trial": 5
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 1.375436782836914,
+    "ml_inference_ms": 18.14103126525879,
+    "rule_install_ms": 0.9732246398925781,
+    "total_ms": 20.495176315307617,
+    "trial": 6
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 1.5864372253417969,
+    "ml_inference_ms": 10.690927505493164,
+    "rule_install_ms": 0.8015632629394531,
+    "total_ms": 13.092994689941406,
+    "trial": 7
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 1.6252994537353516,
+    "ml_inference_ms": 11.225223541259766,
+    "rule_install_ms": 0.7088184356689453,
+    "total_ms": 13.567686080932617,
+    "trial": 8
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 1.3475418090820312,
+    "ml_inference_ms": 9.906291961669922,
+    "rule_install_ms": 0.7491111755371094,
+    "total_ms": 12.011051177978516,
+    "trial": 9
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 1.4660358428955078,
+    "ml_inference_ms": 9.633302688598633,
+    "rule_install_ms": 0.6206035614013672,
+    "total_ms": 11.727094650268555,
+    "trial": 10
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 1.4317035675048828,
+    "ml_inference_ms": 10.461091995239258,
+    "rule_install_ms": 0.6530284881591797,
+    "total_ms": 12.552499771118164,
+    "trial": 11
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 1.293182373046875,
+    "ml_inference_ms": 9.156465530395508,
+    "rule_install_ms": 0.690460205078125,
+    "total_ms": 11.15107536315918,
+    "trial": 12
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 0.8525848388671875,
+    "ml_inference_ms": 9.477853775024414,
+    "rule_install_ms": 0.6070137023925781,
+    "total_ms": 10.941267013549805,
+    "trial": 13
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 0.9436607360839844,
+    "ml_inference_ms": 8.372306823730469,
+    "rule_install_ms": 0.6225109100341797,
+    "total_ms": 9.943485260009766,
+    "trial": 14
+  },
+  {
+    "src_ip": "172.16.0.5",
+    "feature_extraction_ms": 1.0104179382324219,
+    "ml_inference_ms": 9.400367736816406,
+    "rule_install_ms": 0.6632804870605469,
+    "total_ms": 11.07931137084961,
+    "trial": 15
+  }
+]
