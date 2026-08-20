@@ -2,3 +2,27 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+.claude/
+
+# Large real derived data -- regeneratable by re-running the pipeline
+# against the real CIC-DDoS2019 source pcaps, kept on disk for local
+# reproducibility/resumability but too large for git.
+#
+# ch7-p4xgboost side (controller/ml/train_model.py):
+# evaluation_output/raw_packet_cache/ -- ~2.7GB, 180 per-file raw packet
+#   CSVs (window-size-independent).
+# evaluation_output/extraction_cache/ -- ~9MB, obsolete pre-raw-cache
+#   windowed cache, superseded by raw_packet_cache/ above.
+evaluation_output/raw_packet_cache/
+evaluation_output/extraction_cache/
+#
+# baseline_reimpl side (baseline/baseline_reimpl/build_real_dataset.py +
+# extract_features.py):
+# real_packets_cache/ -- ~4.5GB, 180 per-file raw packet CSVs.
+# real_packets.csv -- ~626MB, obsolete/orphaned (from an abandoned
+#   OOM-crashed first attempt, superseded by real_packets_cache/; safe to
+#   delete from disk if space is needed).
+# real_flows.csv -- ~1.3GB, real flow-level aggregate.
+baseline/baseline_reimpl/real_packets_cache/
+baseline/baseline_reimpl/real_packets.csv
+baseline/baseline_reimpl/real_flows.csv

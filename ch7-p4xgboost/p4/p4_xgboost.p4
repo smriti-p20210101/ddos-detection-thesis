@@ -54,24 +54,7 @@ struct parsed_headers_t {
     udp_t      udp;
 }
 
-struct standard_metadata_t {
-    bit<9> ingress_port;
-    bit<9> egress_spec;
-    bit<9> egress_port;
-    bit<32> instance_type;
-    bit<32> packet_length;
-    bit<32> enq_timestamp;
-    bit<19> enq_qdepth;
-    bit<32> deq_timedelta;
-    bit<32> deq_qdepth;
-    bit<48> ingress_global_timestamp;
-    bit<48> egress_global_timestamp;
-    bit<16> mcast_grp;
-    bit<16> egress_rid;
-    bit<1> checksum_error;
-    bit<32> parser_error;
-    bit<3> priority;
-}
+// standard_metadata_t is provided by v1model.p4 (included above) -- do not redeclare it here.
 
 struct metadata_t {
     bit<10> flow_hash;
@@ -183,7 +166,7 @@ control MyIngress(inout parsed_headers_t hdr,
                 // Do nothing, action already drops
             } else {
                 // Stage 2: Hash ALU
-                hash(meta.flow_hash, HashAlgorithm_t.crc16, (bit<10>)0, {hdr.ipv4.srcAddr}, (bit<10>)1023);
+                hash(meta.flow_hash, HashAlgorithm.crc16, (bit<10>)0, {hdr.ipv4.srcAddr}, (bit<10>)1023);
                 
                 // Stage 3: CMS Accounting
                 cms_reg.read(meta.counter_val, (bit<32>)meta.flow_hash);
@@ -199,9 +182,8 @@ control MyIngress(inout parsed_headers_t hdr,
                         alert.srcAddr = hdr.ipv4.srcAddr;
                         alert.ingress_port = standard_metadata.ingress_port;
                         // emit 28-Byte Alert payload struct
-                        // In P4 Runtime we use a digest call:
-                        // digest(1, alert); 
-                        
+                        digest<alert_digest_t>(1, alert);
+
                         bloom_reg.write((bit<32>)meta.flow_hash, 1);
                     }
                 }
@@ -235,12 +217,12 @@ control MyComputeChecksum(inout parsed_headers_t hdr, inout metadata_t meta) {
               hdr.ipv4.srcAddr,
               hdr.ipv4.dstAddr },
             hdr.ipv4.hdrChecksum,
-            HashAlgorithm_t.csum16
+            HashAlgorithm.csum16
         );
     }
 }
 
-parser MyDeparser(packet_out packet, in parsed_headers_t hdr) {
+control MyDeparser(packet_out packet, in parsed_headers_t hdr) {
     apply {
         packet.emit(hdr.ethernet);
         packet.emit(hdr.ipv4);

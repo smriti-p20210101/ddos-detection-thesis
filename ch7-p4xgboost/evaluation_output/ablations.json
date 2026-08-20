@@ -1,0 +1,49 @@
+{
+  "note": "Real ablation studies re-run on the real pipeline. Only 4 of the original thesis's 6 are included -- the other 2 either aren't feasible on this software-switch (BMv2) setup or weren't run for real; see 'not_run' below rather than any fabricated placeholder numbers. feature_dimensionality, tree_depth, and register_granularity were re-run a second time (this version) on the expanded 180-file combined UDP+SYN dataset (83,457 window-rows) using the same per-type temporal 80/20 split as the main training run -- the earlier version of this file used the older 40-file UDP-only dataset. bloom_deduplication and threshold_T are unchanged: both are live single-replay switch measurements independent of the training dataset/model, so they were not re-run.",
+  "feature_dimensionality": {
+    "method": "Retrained real XGBoost on the same real per-type temporal 80/20 split (controller/ml/train_model.py's per_type_temporal_split, combined UDP+SYN 83,457-row dataset), varying which of the 8 real features are included. Weighted-avg F1 and FPR from real confusion matrices; inference time is a real single-row microbenchmark (100 repeats, mean).",
+    "results": [
+      {"feature_set": "Full (8 features)", "f1_weighted": 0.827, "fpr_pct": 7.32, "inference_ms": 1.876},
+      {"feature_set": "Basic (4 features: pkt_rate, byte_rate, port_div, tcp_flags)", "f1_weighted": 0.740, "fpr_pct": 0.82, "inference_ms": 1.699},
+      {"feature_set": "Minimal (2 features: pkt_rate, byte_rate)", "f1_weighted": 0.711, "fpr_pct": 0.92, "inference_ms": 1.875}
+    ],
+    "finding": "F1 decreases monotonically with fewer features (0.827->0.740->0.711), same direction as the thesis's claim (0.974->0.932->0.891) but smaller real magnitude, and starting from a much lower real baseline. FPR drops sharply going from 8 to 4 features (7.32%->0.82%) then ticks up slightly at 2 features (0.92%) -- consistent with a model that becomes more conservative (fewer false alarms, but also less recall) as features are removed, not a smooth thesis-style progression."
+  },
+  "tree_depth": {
+    "method": "Retrained real XGBoost at max_depth in {3,6,9,12}, same real per-type temporal split (combined UDP+SYN dataset). Same single-row microbenchmark methodology for inference time.",
+    "results": [
+      {"depth": 3, "precision": 0.793, "recall": 0.132, "f1_weighted": 0.712, "inference_ms": 1.878},
+      {"depth": 6, "precision": 0.711, "recall": 0.552, "f1_weighted": 0.827, "inference_ms": 2.198},
+      {"depth": 9, "precision": 0.710, "recall": 0.620, "f1_weighted": 0.840, "inference_ms": 2.147},
+      {"depth": 12, "precision": 0.720, "recall": 0.634, "f1_weighted": 0.846, "inference_ms": 2.072}
+    ],
+    "finding": "Unlike the earlier 40-file UDP-only run (where F1 plateaued almost immediately past depth 6), on this harder combined UDP+SYN task F1 keeps rising all the way to depth 12 (0.712->0.827->0.840->0.846), driven mostly by recall climbing (0.132->0.552->0.620->0.634) as the model gets more capacity to separate the much rarer, harder-to-learn SYN class from benign traffic. Inference-time numbers remain noisy millisecond-scale microbenchmarks with no clean depth->latency relationship, same as before -- flagged as measurement noise, not reported as a real trend."
+  },
+  "register_granularity": {
+    "method": "Real distinct source IPs (536, up from 355 in the earlier 40-file sample now that the dataset spans 180 files) from the real extracted dataset, hashed via the same crc16-via-crc32 approximation baseline_reimpl/common.py already uses and flags -- not bit-identical to BMv2's real CRC16 hash extern.",
+    "results": [
+      {"register_width": 256, "collision_pct": 86.57},
+      {"register_width": 512, "collision_pct": 66.04},
+      {"register_width": 1024, "collision_pct": 43.10},
+      {"register_width": 2048, "collision_pct": 23.69}
+    ],
+    "finding": "At P4-XGBoost's actual chosen width (1024), real collision rate is 43.10% -- still dramatically higher than the thesis's claimed 3.8%, and higher than the earlier 40-file run's 30.99% because the expanded dataset now has 536 distinct source IPs sharing the same 1024 slots (a modest real sample either way, not the larger population the thesis's number implied)."
+  },
+  "bloom_deduplication": {
+    "method": "Real simple_switch log inspection: replayed the real 150-packet attacker trigger slice once, counted (a) how many packets crossed the CMS threshold (would each attempt a digest without dedup) vs (b) how many bloom_reg writes actually occurred (real digest-eligible events, i.e. with dedup as currently implemented).",
+    "results": {"threshold_crossing_events": 50, "actual_digest_eligible_events_with_dedup": 1},
+    "finding": "Real ~50x reduction in digest volume from dedup on just this small 150-packet slice. Over the full real ~15.78M-packet attacker flow in the 40-file sample, the reduction would be dramatically larger -- dedup keeps digest volume to 1 per source IP for the switch's lifetime regardless of how many packets keep crossing the threshold. Not re-run against the expanded 180-file dataset: this is a live single-replay switch measurement independent of the training dataset/model, using the same fixed attacker_trigger_slice.pcap as before."
+  },
+  "threshold_T": {
+    "method": "Real inter-arrival timestamps from the real 150-packet attacker trigger slice -- how long (real elapsed time) it actually took this real attacker to send T packets.",
+    "results": [
+      {"T": 10, "real_time_to_cross_ms": 22.0},
+      {"T": 100, "real_time_to_cross_ms": 23749.0},
+      {"T": 500, "real_time_to_cross_ms": null, "note": "not reached within this 150-packet slice"}
+    ],
+    "finding": "MAJOR real divergence, not a minor detail: at the thesis's own chosen T=100, this real attacker's actual packet rate takes ~23.75 SECONDS of real elapsed time to cross the threshold -- nowhere close to the thesis's implied ~28ms total end-to-end latency budget. The thesis's 28ms figure apparently only ever measured the controller-side pipeline after a digest already existed, not the real data-plane accumulation time needed to generate one in the first place. This attacker sends a sustained moderate-rate flood, not a rapid burst -- see stage #7's forensic finding. Not re-run against the expanded 180-file dataset: this is a live single-replay switch measurement independent of the training dataset/model, using the same fixed attacker_trigger_slice.pcap as before."
+  },
+  "not_run": {
+    "digest_payload_size": "Requires comparing against real Tofino ASIC line-rate throughput (>5,000 alerts/sec claim in the thesis) -- BMv2 is a software reference switch and cannot faithfully reproduce Tofino performance, same reasoning baseline_reimpl/README.md already applies to excluding throughput/latency baseline comparisons. Dropped rather than faked with a software-switch number presented as if it were hardware-comparable."
+  }
+}

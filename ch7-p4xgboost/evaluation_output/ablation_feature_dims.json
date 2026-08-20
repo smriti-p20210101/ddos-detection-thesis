@@ -1,0 +1,23 @@
+{
+  "method": "Retrained real XGBoost on the same real per-type temporal 80/20 split (controller/ml/train_model.py's per_type_temporal_split, combined UDP+SYN 83,457-row dataset), varying which of the 8 real features are included. Weighted-avg F1 and FPR from real confusion matrices; inference time is a real single-row microbenchmark (100 repeats, mean).",
+  "results": [
+    {
+      "feature_set": "Full (8 features)",
+      "f1_weighted": 0.827,
+      "fpr_pct": 7.32,
+      "inference_ms": 1.876
+    },
+    {
+      "feature_set": "Basic (4 features: pkt_rate, byte_rate, port_div, tcp_flags)",
+      "f1_weighted": 0.74,
+      "fpr_pct": 0.82,
+      "inference_ms": 1.699
+    },
+    {
+      "feature_set": "Minimal (2 features: pkt_rate, byte_rate)",
+      "f1_weighted": 0.711,
+      "fpr_pct": 0.92,
+      "inference_ms": 1.875
+    }
+  ]
+}

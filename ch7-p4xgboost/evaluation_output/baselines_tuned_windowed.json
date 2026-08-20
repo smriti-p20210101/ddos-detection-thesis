@@ -1,0 +1,49 @@
+[
+  {
+    "system": "Jaqen-lite (retuned)",
+    "accuracy": 0.7224585155454382,
+    "attack_f1": 0.10404177141752079,
+    "weighted_f1": 0.6556743291425402,
+    "fpr": 0.06301652892561983,
+    "per_attack_type": {
+      "udp": {
+        "precision": 0.0853517877739331,
+        "recall": 0.02117310443490701,
+        "f1": 0.033929390187987164
+      },
+      "syn": {
+        "precision": 0.19736842105263158,
+        "recall": 0.31758957654723124,
+        "f1": 0.24344569288389514
+      }
+    },
+    "tuned_params": {
+      "syn_thresh": 1,
+      "udp_thresh": 1,
+      "asym_thresh": 0
+    }
+  },
+  {
+    "system": "POSEIDON-lite (retuned)",
+    "accuracy": 0.3845923440963278,
+    "attack_f1": 0.20958682772947604,
+    "weighted_f1": 0.425612078399981,
+    "fpr": 0.5980610298792117,
+    "per_attack_type": {
+      "udp": {
+        "precision": 0.11113735679697649,
+        "recall": 0.269241773962804,
+        "f1": 0.15733154990804213
+      },
+      "syn": {
+        "precision": 0.052975965773247764,
+        "recall": 0.6856677524429967,
+        "f1": 0.09835299614531012
+      }
+    },
+    "tuned_params": {
+      "syn_ack_asym_t": 0,
+      "dns_rate_limit": 1
+    }
+  }
+]

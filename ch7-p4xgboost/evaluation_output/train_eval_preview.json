@@ -1,0 +1,98 @@
+{
+  "train_rows": 66764,
+  "test_rows": 16693,
+  "confusion_matrix": [
+    [
+      11567,
+      1017
+    ],
+    [
+      1284,
+      2825
+    ]
+  ],
+  "classification_report": {
+    "benign": {
+      "precision": 0.900085596451638,
+      "recall": 0.9191830896376351,
+      "f1-score": 0.9095341065460979,
+      "support": 12584.0
+    },
+    "attack": {
+      "precision": 0.7352941176470589,
+      "recall": 0.687515210513507,
+      "f1-score": 0.7106024399446611,
+      "support": 4109.0
+    },
+    "accuracy": 0.8621577906907086,
+    "macro avg": {
+      "precision": 0.8176898570493485,
+      "recall": 0.803349150075571,
+      "f1-score": 0.8100682732453794,
+      "support": 16693.0
+    },
+    "weighted avg": {
+      "precision": 0.8595219957562559,
+      "recall": 0.8621577906907086,
+      "f1-score": 0.8605668617090222,
+      "support": 16693.0
+    }
+  },
+  "per_attack_type": {
+    "udp": {
+      "benign": {
+        "precision": 0.9002256984979375,
+        "recall": 0.9191830896376351,
+        "f1-score": 0.9096056304800849,
+        "support": 12584.0
+      },
+      "attack": {
+        "precision": 0.6851393188854489,
+        "recall": 0.6331902718168813,
+        "f1-score": 0.6581412639405204,
+        "support": 3495.0
+      },
+      "accuracy": 0.8570184712979663,
+      "macro avg": {
+        "precision": 0.7926825086916932,
+        "recall": 0.7761866807272582,
+        "f1-score": 0.7838734472103026,
+        "support": 16079.0
+      },
+      "weighted avg": {
+        "precision": 0.853473605908495,
+        "recall": 0.8570184712979663,
+        "f1-score": 0.8549462635383734,
+        "support": 16079.0
+      }
+    },
+    "syn": {
+      "benign": {
+        "precision": 0.9998271242112542,
+        "recall": 0.9191830896376351,
+        "f1-score": 0.9578106239390551,
+        "support": 12584.0
+      },
+      "attack": {
+        "precision": 0.3756906077348066,
+        "recall": 0.996742671009772,
+        "f1-score": 0.5456977262594739,
+        "support": 614.0
+      },
+      "accuracy": 0.9227913320200031,
+      "macro avg": {
+        "precision": 0.6877588659730304,
+        "recall": 0.9579628803237035,
+        "f1-score": 0.7517541750992645,
+        "support": 13198.0
+      },
+      "weighted avg": {
+        "precision": 0.9707909201563565,
+        "recall": 0.9227913320200031,
+        "f1-score": 0.9386382251532343,
+        "support": 13198.0
+      }
+    }
+  },
+  "split_method": "per-attack-type temporal 80/20 (see module docstring)"
+}

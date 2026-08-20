@@ -1,0 +1,90 @@
+[
+  {
+    "label": "A: baseline 8 features (0.5s window)",
+    "features": [
+      "pkt_rate",
+      "byte_rate",
+      "duration",
+      "proto_var",
+      "port_div",
+      "size_var",
+      "tcp_flags",
+      "inter_arrival"
+    ],
+    "accuracy": 0.83460132989876,
+    "attack_f1": 0.621729003973147,
+    "weighted_f1": 0.8271022051421518,
+    "per_attack_type": {
+      "udp": {
+        "precision": 0.6588888888888889,
+        "recall": 0.5090128755364807,
+        "f1": 0.5743341404358353
+      },
+      "syn": {
+        "precision": 0.34727143869596033,
+        "recall": 0.7980456026058632,
+        "f1": 0.4839506172839506
+      }
+    }
+  },
+  {
+    "label": "B: baseline 8 + syn_noack_ratio + ack_ratio (0.5s window)",
+    "features": [
+      "pkt_rate",
+      "byte_rate",
+      "duration",
+      "proto_var",
+      "port_div",
+      "size_var",
+      "tcp_flags",
+      "inter_arrival",
+      "syn_noack_ratio",
+      "ack_ratio"
+    ],
+    "accuracy": 0.8482597495956389,
+    "attack_f1": 0.6742960010286743,
+    "weighted_f1": 0.8452640053995347,
+    "per_attack_type": {
+      "udp": {
+        "precision": 0.6578344782466471,
+        "recall": 0.5753934191702432,
+        "f1": 0.6138583638583639
+      },
+      "syn": {
+        "precision": 0.3687386843693422,
+        "recall": 0.995114006514658,
+        "f1": 0.5380889476001761
+      }
+    }
+  },
+  {
+    "label": "C: B's 10 features + tuned depth=9 (real CV-search best from earlier)",
+    "features": [
+      "pkt_rate",
+      "byte_rate",
+      "duration",
+      "proto_var",
+      "port_div",
+      "size_var",
+      "tcp_flags",
+      "inter_arrival",
+      "syn_noack_ratio",
+      "ack_ratio"
+    ],
+    "accuracy": 0.8621577906907086,
+    "attack_f1": 0.7106024399446611,
+    "weighted_f1": 0.8605668617090222,
+    "per_attack_type": {
+      "udp": {
+        "precision": 0.6851393188854489,
+        "recall": 0.6331902718168813,
+        "f1": 0.6581412639405204
+      },
+      "syn": {
+        "precision": 0.3756906077348066,
+        "recall": 0.996742671009772,
+        "f1": 0.5456977262594739
+      }
+    }
+  }
+]

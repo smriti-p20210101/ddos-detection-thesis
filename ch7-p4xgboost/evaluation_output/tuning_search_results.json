@@ -1,0 +1,81 @@
+{
+  "plain_search": {
+    "best_cv_f1_train_only": 0.7633515982407331,
+    "best_params": {
+      "clf__subsample": 1.0,
+      "clf__n_estimators": 100,
+      "clf__min_child_weight": 5,
+      "clf__max_depth": 9,
+      "clf__learning_rate": 0.2,
+      "clf__gamma": 0,
+      "clf__colsample_bytree": 0.9
+    },
+    "test_confusion_matrix": [
+      [
+        11568,
+        1016
+      ],
+      [
+        1518,
+        2591
+      ]
+    ],
+    "test_accuracy": 0.8481998442460912,
+    "test_attack_precision": 0.7183254782367618,
+    "test_attack_recall": 0.6305670479435386,
+    "test_attack_f1": 0.6715914981855884,
+    "test_weighted_f1": 0.8447461087680088,
+    "test_per_attack_type": {
+      "udp": {
+        "precision": 0.6734169077467053,
+        "recall": 0.5994277539341917,
+        "f1": 0.6342718740538904
+      },
+      "syn": {
+        "precision": 0.328042328042328,
+        "recall": 0.8078175895765473,
+        "f1": 0.4666039510818438
+      }
+    }
+  },
+  "smote_search": {
+    "best_cv_f1_train_only": 0.7859195822449662,
+    "best_params": {
+      "smote__sampling_strategy": 0.75,
+      "clf__subsample": 1.0,
+      "clf__n_estimators": 300,
+      "clf__min_child_weight": 5,
+      "clf__max_depth": 12,
+      "clf__learning_rate": 0.2,
+      "clf__gamma": 0.1,
+      "clf__colsample_bytree": 0.9
+    },
+    "test_confusion_matrix": [
+      [
+        10201,
+        2383
+      ],
+      [
+        451,
+        3658
+      ]
+    ],
+    "test_accuracy": 0.8302282393817768,
+    "test_attack_precision": 0.6055288859460354,
+    "test_attack_recall": 0.8902409345339498,
+    "test_attack_f1": 0.7207881773399015,
+    "test_weighted_f1": 0.8393278348312906,
+    "test_per_attack_type": {
+      "udp": {
+        "precision": 0.5625917767988252,
+        "recall": 0.876967095851216,
+        "f1": 0.6854523090685453
+      },
+      "syn": {
+        "precision": 0.19926075268817203,
+        "recall": 0.9657980456026058,
+        "f1": 0.3303621169916435
+      }
+    }
+  }
+}
