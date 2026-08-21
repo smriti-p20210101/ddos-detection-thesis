@@ -26,3 +26,15 @@ evaluation_output/extraction_cache/
 baseline/baseline_reimpl/real_packets_cache/
 baseline/baseline_reimpl/real_packets.csv
 baseline/baseline_reimpl/real_flows.csv
+
+# Rebuild/re-measurement session reports -- working documents produced
+# during this rebuild for review, not repo documentation. README.md is
+# NOT included here; it's the real, intended project documentation.
+#
+# Note: CHAPTER7_REBUILD_REPORT.md is already tracked (committed in
+# 83eaeb8). A gitignore entry does NOT untrack an already-tracked file --
+# it will still show modified in `git status` and still get included if
+# committed again. To actually remove it from git going forward, run
+# yourself: git rm --cached CHAPTER7_REBUILD_REPORT.md
+CHAPTER7_REBUILD_REPORT.md
+CHAPTER6_REMEASUREMENT_REPORT.md

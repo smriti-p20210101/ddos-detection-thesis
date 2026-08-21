@@ -17,3 +17,6 @@ scikit-learn              # temporal split, confusion matrix, classification rep
 imbalanced-learn          # scripts/tune_model_search.py -- SMOTE oversampling in a leakage-safe CV pipeline
 scapy                     # controller/app.py live packet sniffing, controller/p4/digest_listener.py
 thrift                    # controller/p4/p4runtime.py real Thrift RPC client (bm_runtime bindings)
+crcmod                    # scripts/ablation_register_width.py -- bit-exact CRC-16/ARC matching BMv2's
+                          # real HashAlgorithm.crc16 (poly=0x8005, init=0, refin/refout, xorout=0;
+                          # verified against BMv2's src/bm_sim/calculations.cpp)

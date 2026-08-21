@@ -3,6 +3,6 @@
     "malicious_detected": 1,
     "benign_detected": 0,
     "blacklisted_count": 0,
-    "average_mitigation_latency_ms": 11.07931137084961,
+    "average_mitigation_latency_ms": 11.64388656616211,
     "total_mitigated": 1
 }

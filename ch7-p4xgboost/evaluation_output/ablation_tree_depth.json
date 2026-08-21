@@ -3,31 +3,31 @@
   "results": [
     {
       "depth": 3,
-      "precision": 0.793,
-      "recall": 0.132,
-      "f1_weighted": 0.712,
-      "inference_ms": 1.878
+      "precision": 0.695,
+      "recall": 0.591,
+      "f1_weighted": 0.831,
+      "inference_ms": 4.086
     },
     {
       "depth": 6,
-      "precision": 0.711,
-      "recall": 0.552,
-      "f1_weighted": 0.827,
-      "inference_ms": 2.198
+      "precision": 0.728,
+      "recall": 0.673,
+      "f1_weighted": 0.856,
+      "inference_ms": 4.605
     },
     {
       "depth": 9,
-      "precision": 0.71,
-      "recall": 0.62,
-      "f1_weighted": 0.84,
-      "inference_ms": 2.147
+      "precision": 0.735,
+      "recall": 0.688,
+      "f1_weighted": 0.861,
+      "inference_ms": 5.151
     },
     {
       "depth": 12,
-      "precision": 0.72,
-      "recall": 0.634,
-      "f1_weighted": 0.846,
-      "inference_ms": 2.072
+      "precision": 0.73,
+      "recall": 0.686,
+      "f1_weighted": 0.859,
+      "inference_ms": 4.868
     }
   ]
 }

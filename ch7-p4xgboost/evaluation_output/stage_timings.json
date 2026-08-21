@@ -1,9 +1,9 @@
 [
   {
     "src_ip": "172.16.0.5",
-    "feature_extraction_ms": 1.0104179382324219,
-    "ml_inference_ms": 9.400367736816406,
-    "rule_install_ms": 0.6632804870605469,
-    "total_ms": 11.07931137084961
+    "feature_extraction_ms": 1.367330551147461,
+    "ml_inference_ms": 9.36436653137207,
+    "rule_install_ms": 0.9071826934814453,
+    "total_ms": 11.64388656616211
   }
 ]

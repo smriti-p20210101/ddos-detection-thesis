@@ -1,0 +1,47 @@
+{
+  "method": "Real ablation 1, re-scoped for the current 10-feature production model. Production hyperparameters (max_depth=9, lr=0.2) held fixed across all groups; only the feature set varies. Groups C/D isolate syn_noack_ratio's and ack_ratio's real individual marginal contributions (both are folded into group A/B's combined delta in the original 2-feature-at-once test).",
+  "results": [
+    {
+      "feature_set": "A: Full (10, production)",
+      "n_features": 10,
+      "f1_weighted": 0.861,
+      "fpr_pct": 8.08,
+      "inference_ms": 4.6
+    },
+    {
+      "feature_set": "B: Original 8 (no new features)",
+      "n_features": 8,
+      "f1_weighted": 0.846,
+      "fpr_pct": 8.18,
+      "inference_ms": 4.483
+    },
+    {
+      "feature_set": "C: 8 + syn_noack_ratio only (9)",
+      "n_features": 9,
+      "f1_weighted": 0.855,
+      "fpr_pct": 7.84,
+      "inference_ms": 4.529
+    },
+    {
+      "feature_set": "D: 8 + ack_ratio only (9)",
+      "n_features": 9,
+      "f1_weighted": 0.86,
+      "fpr_pct": 8.22,
+      "inference_ms": 4.815
+    },
+    {
+      "feature_set": "E: Basic (4): pkt_rate, byte_rate, port_div, tcp_flags",
+      "n_features": 4,
+      "f1_weighted": 0.785,
+      "fpr_pct": 1.49,
+      "inference_ms": 4.436
+    },
+    {
+      "feature_set": "F: Minimal (2): pkt_rate, byte_rate",
+      "n_features": 2,
+      "f1_weighted": 0.759,
+      "fpr_pct": 2.26,
+      "inference_ms": 3.3
+    }
+  ]
+}
